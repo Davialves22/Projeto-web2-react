@@ -1,0 +1,79 @@
+
+.header {
+    background-color: #ed8936;
+    max-width: 100%;
+    padding: 10px;
+    margin: 10px auto;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+.formControl {
+    background-color: #FBD38D !important; 
+    border: none !important;
+    border-radius: 10px 0 0 10px; 
+    flex: 1; 
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.btn {
+    background-color: #FBD38D;
+    color: #2C5282;
+    border: none;
+    border-radius: 0 10px 10px 0; 
+    padding: 10px;
+}
+
+.btn:hover {
+    background-color: #FBD38D;
+    color: #2C5282;
+}
+
+.inputGroup {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.buttonL{
+    display: flex;
+    padding: 10px;
+    background-color:#2C5282;
+    color: #FBD38D;
+    border-radius: 8px;
+    border: none;
+    margin-right: 10px;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.buttonL:hover{
+    border: none !important;
+}
+
+.btn:hover:active{
+    border: none !important;
+}
+
+.buttonL span{
+    font-size: 20px;
+}
+
+
+@media (max-width: 576px) {
+    .header {
+        margin: 5px; /* Reduza a margem em telas menores */
+        padding: 5px; /* Reduza o padding em telas menores */
+    }
+
+    .buttonL {
+        flex-direction: column; /* Altere a direção do layout se necessário */
+    }
+
+    .btn {
+        padding: 5px; /* Reduza o padding para botões em telas menores */
+    }
+}
