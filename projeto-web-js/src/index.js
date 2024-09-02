@@ -8,7 +8,6 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Home } from "./routes/pages/homePage/Home";
 import { Login } from "./routes/pages/loginPage/Login";
 import { Resgister } from "./routes/pages/RegisterPage/Register";
-//import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Produto } from './routes/pages/produtosPage/Produtos'
 import { CadastroProdutos } from './routes/pages/produtosAddPage/CadastroProdutos'
 import { ForgetPass } from './routes/pages/forgetPass/ForgetPass'

@@ -9,7 +9,7 @@
 }
 
 #search{
-    width: 30vw;
+    width: 37vw;
     height: 6vh;
 }
 
@@ -44,4 +44,6 @@
 
 #navBarLinks{
     display: flex;
+    height: auto;
+    max-width: 100%;
 }
