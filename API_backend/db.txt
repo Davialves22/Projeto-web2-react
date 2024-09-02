@@ -1,0 +1,33 @@
+CREATE DATABASE IF NOT EXISTS autoPecaSeguro;
+
+USE autoPecaSeguro;
+
+CREATE TABLE clientes (
+    cliente_id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    cpf VARCHAR(11) UNIQUE NOT NULL,
+    nome VARCHAR(100) NOT NULL,
+	genero ENUM('M','F','O') NOT NULL,
+    data_nasc DATE NOT NULL
+);
+
+CREATE TABLE produtos (
+    produto_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    nome VARCHAR(100) NOT NULL,
+    descricao TEXT NOT NULL,
+    preco DOUBLE NOT NULL,
+    categoria VARCHAR(100) NOT NULL,
+	quantidade INT NOT NULL
+);
+
+CREATE TABLE pedido (
+    pedido_id INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    produto_id INT NOT NULL,
+    cliente_id INT NOT NULL,
+    data_pedido TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    valor_total DOUBLE NOT NULL,
+    FOREIGN KEY (cliente_id) REFERENCES clientes(cliente_id),
+    FOREIGN KEY (quantidade_pedido) REFERENCES estoque(quantidade),
+    FOREIGN KEY (produto_id) REFERENCES produtos(produto_id)
+);

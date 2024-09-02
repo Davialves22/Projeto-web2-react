@@ -1,0 +1,61 @@
+.sectionSpacing {
+    margin: 0;
+    padding: 20px;
+    
+}
+
+.carouselSlides {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.carouselButton {
+    width: 50px;
+    height: 50px;
+    background-color: #ED8936;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FEEBC8;
+    font-size: 1.5rem;
+    z-index: 10;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    
+}
+
+.carousel-control-prev {
+    left: -60px ;
+}
+
+.carousel-control-next {
+    right: -60px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-size: 100%, 100%;
+    background-repeat: no-repeat;
+}
+
+.carousel-indicators button {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    opacity: 0.8;
+    border: none;
+}
+
+.carousel-indicators .active {
+    background-color: #fff;
+}
+
+.carousel-indicators button:hover {
+    opacity: 1;
+}

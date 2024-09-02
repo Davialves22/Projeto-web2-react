@@ -1,0 +1,111 @@
+.centralize {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ED8936;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: auto;
+    margin-bottom: 80px;
+}
+
+.section {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputEmail,
+.inputPassword {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 5px;
+    background-color: #F6AD55;
+    width: 100%;
+    max-width: 452px;
+}
+
+.inputEmail input,
+.inputPassword input {
+    border: none !important;
+    padding: 8px;
+    background-color: #F6AD55;
+    width: 100%;
+}
+
+.inputEmail ::placeholder,
+.inputPassword ::placeholder {
+    color: #c0562187;
+}
+
+button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+button.forget {
+    background: none;
+    border: none;
+    color: #2C5282;
+    text-align: right;
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
+    margin-top: -30px;
+}
+
+button.enter {
+    align-items: center;
+    justify-content: center;
+    background-color: #ED8936;
+    width: 100%;
+    max-width: 300px;
+    height: 79px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 25pt;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+
+button:active {
+    opacity: 0.8;
+}
+
+.cadastro {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.text {
+    text-align: left;
+    width: 100%;
+    color: #2C5282;
+}
+
+.customIcons {
+    color: #2C5282 !important;
+    padding: 5px;
+    font-size: 24px;
+}
+
+.customIcon {
+    color: #2C5282 !important;
+    padding: 5px;
+    font-size: 24px;
+    transform: rotate(-230deg);
+}
