@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import styles from "./Login.module.css";
+import "./Login.css";
 
 export function Login() {
-    // Estado para armazenar os valores dos campos e mensagens de erro
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
 
-    // Função para validar o email
     const validateEmail = (value) => {
         if (value.length === 0) {
             setEmailError('Email é obrigatório');
@@ -20,7 +18,6 @@ export function Login() {
         }
     };
 
-    // Função para validar a senha
     const validatePassword = (value) => {
         if (!value) {
             setPasswordError('Senha é obrigatória');
@@ -29,103 +26,76 @@ export function Login() {
         }
     };
 
-    // Função chamada quando o email muda
     const handleEmailChange = (e) => {
         const value = e.target.value;
         setEmail(value);
         validateEmail(value);
     };
 
-    // Função chamada quando a senha muda
     const handlePasswordChange = (e) => {
         const value = e.target.value;
         setPassword(value);
         validatePassword(value);
     };
 
-    // Função para verificar se o formulário está válido
     const isFormValid = () => {
         return emailError === '' && passwordError === '' && email !== '' && password !== '';
     };
 
     return (
-        <div className={styles.container}>
-            <main className={styles.centralize}>
-                <section className={styles.section}>
-                    <div className={styles.text}>
-                        <h3>BEM-VINDO!</h3>
-                        <p>ENTRE NA SUA CONTA</p>
+        <main>
+            <section id="login">
+                <h3>BEM-VINDO!</h3>
+                <p>ENTRE NA SUA CONTA</p>
+                <div id="form">
+                    <div id="form-login" className="input-group mb-3">
+                        <span className="input-group-text" id="basic-addon1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-person" viewBox="0 0 16 16">
+                                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z" />
+                            </svg>
+                        </span>
+
+                        <input type="text"
+                            id="input-login"
+                            className="form-control"
+                            placeholder="Username"
+                            aria-label="Username"
+                            aria-describedby="basic-addon1"
+                            data-testid="email"
+                            value={email}
+                            onChange={handleEmailChange}
+                        />
                     </div>
-                </section>
 
-                <section className={styles.section}>
-                    <form className={styles.form}>
-                        <section className={styles.inputEmail}>
-                            <span className={`bi bi-person-fill ${styles.customIcons}`}></span>
-                            <input
-                                type="email"
-                                placeholder="Email"
-                                required
-                                data-testid="email"
-                                value={email}
-                                onChange={handleEmailChange}
-                            />
-                            {emailError && (
-                                <div data-testid="email-required" className={styles.error}>
-                                    {emailError}
-                                </div>
-                            )}
-                        </section>
+                    <div id="form-pass" className="input-group mb-3">
+                        <span className="input-group-text" id="basic-addon1">@</span>
+                        <input type="password"
+                            id="input-pass"
+                            className="form-control"
+                            placeholder="Password"
+                            aria-label="Username"
+                            aria-describedby="basic-addon1"
+                            data-testid="password"
+                            value={password}
+                            onChange={handlePasswordChange} />
+                    </div>
 
-                        <section className={styles.inputPassword}>
-                            <span className={`bi bi-key-fill ${styles.customIcon}`}></span>
-                            <input
-                                type="password"
-                                placeholder="Senha"
-                                required
-                                data-testid="password"
-                                value={password}
-                                onChange={handlePasswordChange}
-                            />
-                            {passwordError && (
-                                <div data-testid="password-required" className={styles.error}>
-                                    {passwordError}
-                                </div>
-                            )}
-                        </section>
-
-                        <button
+                    <Link to="/">
+                        <button className="btnConfirm"
                             type="button"
-                            className={styles.forget}
-                            data-testid="recover-password-button"
-                            disabled={emailError !== '' || email === ''}
-                        >
-                        <Link to="/ForgetPass">
-                            Esqueceu a senha?
-                        </Link>
+                            data-testid="login-button"
+                            disabled={!isFormValid()}>
+                            LOGIN
                         </button>
-
-                        <Link to="/" style={{ textDecoration: 'none' }}>
-                            <button
-                                className={styles.enter}
-                                data-testid="login-button"
-                                disabled={!isFormValid()}
-                            >
-                                ENTRAR
-                            </button>
-                        </Link>
-                    </form>
-                </section>
-            </main>
-
-            <div className={styles.cadastro}>
-                <p>ou</p>
-                <Link to="/Register" style={{ textDecoration: 'none' }}>
-                    <button className={styles.enter}>
-                        CADASTRE-SE
-                    </button>
+                    </Link>
+                </div>
+            </section>
+            <section id="cadaster">
+                <span> OU </span>
+                <Link to="/Register">
+                    <a href='#' id="link-register">CADASTRE-SE</a>
                 </Link>
-            </div>
-        </div>
+            </section>
+        </main>
     );
 }

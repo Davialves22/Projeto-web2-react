@@ -77,13 +77,11 @@ export const Header = ({ username }) => {
                 <div id={classes.navBarLinks}>
                   {/* TO FIX - mudar o redirecionamento do link */}
                   <Link to="/MinhaConta" class={classes.btnOp}>
-                    {" "}
-                    Minha Conta{" "}
+                    Minha Conta
                   </Link>
                   |
                   <Link to="/Login" class={classes.btnOp}>
-                    {" "}
-                    Sair{" "}
+                    Sair
                   </Link>
                 </div>
               </div>

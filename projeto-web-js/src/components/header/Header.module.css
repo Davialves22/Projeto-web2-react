@@ -1,9 +1,10 @@
 #navbar{
     background-color: var(--primary-color);
     border-radius: 10px;
+    box-sizing: border-box;
 
-    max-width: 100vw;
-    width: 90%;
+    max-width: 3150px;
+    width: 95%;
 
     margin: 1% auto;
 }
@@ -22,6 +23,8 @@
     width: 12%;
     display: flex;
     justify-content: space-around;
+
+    margin: 0 2%;
 }
 
 #navBarUser{
