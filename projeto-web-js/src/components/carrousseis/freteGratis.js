@@ -23,6 +23,8 @@ export const FreteGratis = () => {
         { title: "Produto 6", text: "Texto personalizado para o Card 6.", imageSrc: "https://picsum.photos/id/1012/185/132", price: 49.99, id: "" },
         { title: "Produto 7", text: "Texto personalizado para o Card 7.", imageSrc: "https://picsum.photos/id/1013/185/132", price: 19.99, id: "" },
         { title: "Produto 8", text: "Texto personalizado para o Card 8.", imageSrc: "https://picsum.photos/id/1014/185/132", price: 39.99, id: "" },
+        { title: "Produto 9", text: "Texto personalizado para o Card 9.", imageSrc: "https://picsum.photos/id/1015/185/132", price: 45.99, id: "" },
+        { title: "Produto 10", text: "Texto personalizado para o Card 10.", imageSrc: "https://picsum.photos/id/1016/185/132", price: 35.99, id: "" }
     ];
 
     // Atualiza os dados com os IDs extraídos
@@ -38,7 +40,8 @@ export const FreteGratis = () => {
         return result;
     };
 
-    const slides = chunkArray(cardsData, 4); // 4 cards por slide
+    // Divida os dados em slides de 5 cards
+    const slides = chunkArray(cardsData, 5);
 
     return (
         <section className={styles.carousel}>
@@ -46,17 +49,14 @@ export const FreteGratis = () => {
             <div id="carouselThird" className="carousel slide" data-bs-ride="carousel">
                 <div className="carousel-inner">
                     {slides.map((slide, slideIndex) => (
-
                         <div
                             key={slideIndex}
-                            className={`carousel-item 
-                                ${slideIndex === 0 ? 'active' : ''} 
-                                ${styles.carouselItem}`}
+                            className={`carousel-item ${slideIndex === 0 ? 'active' : ''}`}
                         >
                             <div className="container">
-                                <div className="row">
-                                    {slide.map((card, index) => (
-                                        <div key={index} className="col-12 col-md-3 mb-4">
+                                <div className="row justify-content-center">
+                                    {slide.map((card) => (
+                                        <div key={card.id} className="col-12 col-md-4 col-lg-2 mb-4 d-flex justify-content-center">
                                             <Card
                                                 title={card.title}
                                                 text={`${card.text}\nPreço: R$ ${convertToBRL(card.price)}`}

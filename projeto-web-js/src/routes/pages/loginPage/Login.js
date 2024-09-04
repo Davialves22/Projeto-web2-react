@@ -88,12 +88,13 @@ export function Login() {
                             LOGIN
                         </button>
                     </Link>
+
                 </div>
             </section>
             <section id="cadaster">
                 <span> OU </span>
                 <Link to="/Register">
-                    <a href='#' id="link-register">CADASTRE-SE</a>
+                    <a href='/' id="link-register">CADASTRE-SE</a>
                 </Link>
             </section>
         </main>

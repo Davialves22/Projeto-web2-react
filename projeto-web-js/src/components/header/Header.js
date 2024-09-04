@@ -15,20 +15,7 @@ export const Header = ({ username }) => {
             <img src={logo} alt="Logo" width="100" height="90" />
           </a>
 
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-
-          <div className="collapse navbar-collapse" id="navbarNav">
-            {!isLoginPage && (
+        
               <div className={`${classes.inputGroup} ms-auto me-auto`}>
                 <form class="d-flex" role="search">
                   <input
@@ -52,7 +39,6 @@ export const Header = ({ username }) => {
                   </button>
                 </form>
               </div>
-            )}
 
             <div id={classes.navBarOptions}>
               <div id={classes.navBarUser}>
@@ -87,7 +73,6 @@ export const Header = ({ username }) => {
               </div>
             </div>
           </div>
-        </div>
       </nav>
     </header>
   );

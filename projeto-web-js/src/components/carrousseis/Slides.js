@@ -37,8 +37,8 @@ export function Slides() {
                                 src={image1}
                                 className="d-block w-100"
                                 alt="Gojo vs Sukuna"
-                                width={1920}
-                                height={300}
+                                width={1810}
+                                height={450}
                                 style={{ objectFit: "fill", objectPosition: "center top" }}
                             />
                         </div>
@@ -49,7 +49,7 @@ export function Slides() {
                                 className="d-block w-100"
                                 alt="Baterias"
                                 width={1920}
-                                height={300}
+                                height={200}
                                 style={{ objectFit: 'fill', objectPosition: 'center top' }}
                             />
                         </div>
@@ -60,7 +60,7 @@ export function Slides() {
                                 className="d-block w-100"
                                 alt="Banner 3"
                                 width={1920}
-                                height={300}
+                                height={200}
                                 style={{ objectFit: 'fill', objectPosition: 'center top' }}
                             />
                         </div>
