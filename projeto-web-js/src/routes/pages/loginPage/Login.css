@@ -1,43 +1,57 @@
 main {
     display: flex;
-    flex-direction: row; /* Alinha o título e o conteúdo em coluna */
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     gap: 2rem;
     box-sizing: border-box;
     width: 100%;
-    max-width: 60rem; /* Aumenta a largura máxima para acomodar ambos os elementos lado a lado */
+    max-width: 80rem;
     margin: 0 auto;
     padding: 1rem;
 }
 
-/* Título alinhado ao início */
 #title {
     color: var(--second-color);
-    align-self: flex-start; /* Alinha o título ao início do main */
+    align-self: flex-start;
 }
 
 #login {
-    background-color: var(--third-color);
-    border: 2px solid var(--second-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(237, 137, 54, 0.1);
+    border: 2px solid #ed8936;
     border-radius: 10px;
     max-width: 100%;
     width: 40rem;
     padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centraliza o conteúdo dentro do login */
+    margin: 2rem 0 2rem 12rem;
 }
 
-#form-login, #form-pass {
+#form-login,
+#form-pass {
     max-width: 100%;
     width: 25rem;
-    margin-bottom: 1rem; /* Espaço entre campos */
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
 }
 
-#input-login, #input-pass {
+#input-login,
+#input-pass {
     max-width: 100%;
     height: 4rem;
+    background-color: #ed8936;
+}
+
+#basic-addon1 {
+    color: var(--second-color);
+    font-size: 1.80rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .btnConfirm {
@@ -48,13 +62,14 @@ main {
     height: 65px;
     font-size: 30px;
     border-radius: 10px;
-    margin: 2rem 0; /* Margens verticais para o botão */
+    margin: 2rem auto;
 }
 
 #form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
 }
 
 #link-register {
@@ -62,13 +77,25 @@ main {
     text-decoration: dashed;
 }
 
-/* Seção de cadastro */
 #cadaster {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 0.5rem;
+    color: var(--second-color);
+}
+
+#cadaster p {
+    font-size: 1.20rem;
+    font-weight: 900;
+    text-decoration: none;
+    margin-left: 10rem;
+}
+
+#Forget p {
+    text-decoration: none;
+    color: var(--second-color);
 }
 
 /* Responsividade */
@@ -77,7 +104,8 @@ main {
         width: 35rem;
     }
 
-    #form-login, #form-pass {
+    #form-login,
+    #form-pass {
         width: 20rem;
     }
 
@@ -99,7 +127,8 @@ main {
         padding: 1rem;
     }
 
-    #form-login, #form-pass {
+    #form-login,
+    #form-pass {
         width: 18rem;
     }
 
@@ -116,7 +145,8 @@ main {
         padding: 1rem;
     }
 
-    #form-login, #form-pass {
+    #form-login,
+    #form-pass {
         width: 100%;
     }
 
@@ -133,7 +163,8 @@ main {
         padding: 0.5rem;
     }
 
-    #input-login, #input-pass {
+    #input-login,
+    #input-pass {
         height: 3rem;
     }
 
@@ -142,7 +173,8 @@ main {
         font-size: 18px;
     }
 
-    #form-login, #form-pass {
+    #form-login,
+    #form-pass {
         width: 100%;
     }
 }

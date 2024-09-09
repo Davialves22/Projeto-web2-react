@@ -8,7 +8,7 @@ import 'atropos/css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Home } from "./routes/pages/homePage/Home";
 import { Login } from "./routes/pages/loginPage/Login";
-import { Resgister } from "./routes/pages/RegisterPage/Register";
+import { Register} from "./routes/pages/RegisterPage/Register";
 import { Produto } from './routes/pages/produtosPage/Produtos'
 import { CadastroProdutos } from './routes/pages/produtosAddPage/CadastroProdutos'
 import { ForgetPass } from './routes/pages/forgetPass/ForgetPass'
@@ -22,7 +22,7 @@ const router = createBrowserRouter([
       { path: '/Login', element: <Login /> },
       { path: '/Produto', element: <Produto /> },
       { path: '/Produto-add', element: <CadastroProdutos/> },
-      { path: '/Register', element: <Resgister /> },
+      { path: '/Register', element: <Register /> },
       { path: '/Descricao', element: <ProductDescription /> },
       { path: '/ForgetPass', element: <ForgetPass/> },
       { path: '*', element: <h1>Page Not Found</h1> },  // 404 Page  // Default Route

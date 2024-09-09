@@ -1,13 +1,25 @@
 .footer {
-    position: relative;
-    bottom: 0;
-    left: 0;
     width: 100%;
-    height: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: var(--fourth-color);
     color: var(--sixth-color);
-    padding-top: 20px;
+    padding: 20px;
+    height: auto;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        padding: 20px 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer {
+        padding: 15px 5px;
+        font-size: 14px;
+    }
 }
