@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 import { Footer } from "./components/footer/Footer";
 
 
-export function App() {
+export const App =() => {
   return (
     <div className="App">
       <Header />

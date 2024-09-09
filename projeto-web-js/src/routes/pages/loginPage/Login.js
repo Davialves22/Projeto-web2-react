@@ -52,12 +52,14 @@ export function Login() {
     };
 
     // Trechos como esse: {emailError && <div data-testid="email-error" className="error-message">{emailError}</div>} implementam o teste no DOM (NÃO EXCLUIR)
-    
+
     return (
         <main>
             <section id="login">
-                <h3>BEM-VINDO!</h3>
-                <p>ENTRE NA SUA CONTA</p>
+                <div id='title'>
+                    <h3>BEM-VINDO!</h3>
+                    <p>ENTRE NA SUA CONTA</p>
+                </div>
                 <div id="form">
                     <form onSubmit={handleSubmit}>
                         <div id="form-login" className="input-group mb-3">
@@ -69,24 +71,24 @@ export function Login() {
                             <input type="text"
                                 id="input-login"
                                 className="form-control"
-                                placeholder="Username"
+                                placeholder="Email"
                                 aria-label="Username"
                                 aria-describedby="basic-addon1"
                                 data-testid="email"
                                 value={email}
                                 onChange={handleEmailChange}
                             />
-                            
-                            {emailError && <div  data-testid="email-error" className="error-message">{emailError}</div>}
-                             {emailError && <div data-testid="email-required" className="error-message">{emailError}</div>}
-                         </div>
+
+                            {emailError && <div data-testid="email-error" className="error-message">{emailError}</div>}
+                            {emailError && <div data-testid="email-required" className="error-message">{emailError}</div>}
+                        </div>
 
                         <div id="form-pass" className="input-group mb-3">
                             <span className="input-group-text" id="basic-addon1">@</span>
                             <input type="password"
                                 id="input-pass"
                                 className="form-control"
-                                placeholder="Password"
+                                placeholder="Senha"
                                 aria-label="Username"
                                 aria-describedby="basic-addon1"
                                 data-testid="password"
@@ -97,12 +99,12 @@ export function Login() {
 
                         <Link to="/">
                             <button className="btnConfirm"
-                                type="submit"
                                 data-testid="login-button"
                                 disabled={!isFormValid()}>
                                 LOGIN
                             </button>
                         </Link>
+
                     </form>
                 </div>
             </section>

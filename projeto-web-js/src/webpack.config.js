@@ -1,7 +1,21 @@
+const path = require('path');
+
 module.exports = {
-    // ... outras configurações
+    entry: './src/index.js',
+    output: {
+        path: path.resolve(__dirname, 'dist'),
+        filename: 'bundle.js',
+    },
     module: {
         rules: [
+            // Regras para arquivos JavaScript
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: 'babel-loader',
+                },
+            },
             // Regras para arquivos de imagem
             {
                 test: /\.(jpg|jpeg|png|gif)$/,
@@ -29,8 +43,24 @@ module.exports = {
                     },
                 ],
             },
-            // ... outras regras
+            // Regras para CSS global
+            {
+                test: /\.css$/,
+                exclude: /\.module\.css$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                ],
+            },
+            // Outras regras podem ser adicionadas aqui
         ],
     },
-    // ... outras configurações
+    resolve: {
+        extensions: ['.js'],
+    },
+    devServer: {
+        contentBase: path.join(__dirname, 'dist'),
+        compress: true,
+        port: 9000,
+    },
 };

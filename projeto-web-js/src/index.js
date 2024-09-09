@@ -4,6 +4,7 @@ import './index.css';
 import { App } from './App';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import "bootstrap/dist/css/bootstrap.min.css";
+import 'atropos/css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Home } from "./routes/pages/homePage/Home";
 import { Login } from "./routes/pages/loginPage/Login";
