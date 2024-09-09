@@ -1,9 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import axios from "axios";
-import "./CadastroProdutos.css"
 
-export default function CadastroProdutos() {
+
+export function CadastroProdutos() {
   const [produto, setProduto] = useState({ nome: '', descricao: '', preco: '', imagem_produto: '', categoria: '', quantidade: '' });
 
   const handleChange = (event) => {

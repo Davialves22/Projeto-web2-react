@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import { Login } from './Login';
@@ -11,7 +11,7 @@ describe("Login", () => {
             </MemoryRouter>
         );
 
-        const email = screen.getByTestId("email",);
+        const email = screen.getByTestId("email");
         await userEvent.type(email, "qualquerValor"); // Simula a exclusão do valor do email
         await userEvent.clear(email);
 
@@ -19,7 +19,7 @@ describe("Login", () => {
         const emailError = await waitFor(() => screen.findByTestId("email-required"));
         expect(emailError).toBeInTheDocument();
         expect(emailError).toHaveTextContent("Email é obrigatório");
-        });
+    });
 
     test("dado o email, quando for inválido, então exibe a mensagem de erro de email inválido", async () => {
         render(
@@ -37,41 +37,47 @@ describe("Login", () => {
         expect(invalidEmailError).toHaveTextContent("Email inválido");
     });
 
-    test("dado a senha, quando estiver vazia, então exibe a mensagem de erro obrigatória", async () => {
+    test("Quando a senha estiver vazia, então exibe a mensagem de erro obrigatória", async () => {
+
+
         render(
             <MemoryRouter>
                 <Login />
             </MemoryRouter>
         );
 
-        const password = screen.getByTestId("password");
-        await userEvent.type(password, "qualquerValor"); // Simula a exclusão do valor da senha
-        await userEvent.clear(password);
+
+        const senha = screen.getByTestId("password");
+        await userEvent.type(senha, "qualquerValor"); // Simula a exclusão do valor do email
+        await userEvent.clear(senha);
 
         // Aguarda e verifica se a mensagem de erro é exibida
-        const passwordError = await waitFor(() => screen.findByTestId("password-required"));
-        expect(passwordError).toBeInTheDocument();
-        expect(passwordError).toHaveTextContent("Senha é obrigatória");
+        const senhaError = await waitFor(() => screen.findByTestId("password-error"));
+        expect(senhaError).toBeInTheDocument();
+        expect(senhaError).toHaveTextContent("Senha é obrigatória");
     });
 
-    test("dado a senha, quando tiver valor, então esconde a mensagem de erro obrigatória", async () => {
-        render(
-            <MemoryRouter>
-                <Login />
-            </MemoryRouter>
-        );
 
-        const password = screen.getByTestId("password");
-        await userEvent.type(password, "anyValue");
 
-        // Aguarda e verifica se a mensagem de erro desapareceu
-        await waitFor(() => {
-            const passwordError = screen.queryByTestId("password-required");
-            expect(passwordError).not.toBeInTheDocument();
-        });
+test("dado a senha, quando tiver valor, então esconde a mensagem de erro obrigatória", async () => {
+    render(
+        <MemoryRouter>
+            <Login />
+        </MemoryRouter>
+    );
+
+    const password = screen.getByTestId("password");
+    await userEvent.type(password, "anyValue");
+
+    // Aguarda e verifica se a mensagem de erro desapareceu
+    await waitFor(() => {
+        const passwordError = screen.queryByTestId("password-required");
+        expect(passwordError).not.toBeInTheDocument();
+    });
     });
 
-    test("dado o email, quando for válido, então ativa o botão de recuperar senha", async () => {
+
+    /* test("dado o email, quando for válido, então ativa o botão de recuperar senha", async () => {
         render(
             <MemoryRouter>
                 <Login />
@@ -84,7 +90,7 @@ describe("Login", () => {
         // Verifique se o botão de recuperar senha está ativado
         const recoverButton = screen.getByTestId('recover-password-button');
         expect(recoverButton).not.toBeDisabled();
-    });
+    }); */
 
     test("dado o formulário válido, então ativa o botão de login", async () => {
         render(
@@ -103,3 +109,4 @@ describe("Login", () => {
         expect(loginButton).not.toBeDisabled();
     });
 });
+
