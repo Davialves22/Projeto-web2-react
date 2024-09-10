@@ -9,10 +9,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Home } from "./routes/pages/homePage/Home";
 import { Login } from "./routes/pages/loginPage/Login";
 import { Register} from "./routes/pages/RegisterPage/Register";
-import { Produto } from './routes/pages/produtosPage/Produtos'
-import { CadastroProdutos } from './routes/pages/produtosAddPage/CadastroProdutos'
-import { ForgetPass } from './routes/pages/forgetPass/ForgetPass'
-import { ProductDescription } from './components/productDescription/ProductDescription';
+import { Produto } from './routes/pages/produtosPage/Produtos';
+import { CadastroProdutos } from './routes/pages/produtosAddPage/CadastroProdutos';
+import { ForgetPass } from './routes/pages/forgetPass/ForgetPass';
+import { ProdutoDetalhado } from './routes/pages/produtoDetalhadoPage/produtoDetalhadoPage';
 
 
 const router = createBrowserRouter([
@@ -23,7 +23,7 @@ const router = createBrowserRouter([
       { path: '/Produto', element: <Produto /> },
       { path: '/Produto-add', element: <CadastroProdutos/> },
       { path: '/Register', element: <Register /> },
-      { path: '/Descricao', element: <ProductDescription /> },
+      { path: '/Descricao/:id', element: <ProdutoDetalhado /> },
       { path: '/ForgetPass', element: <ForgetPass/> },
       { path: '*', element: <h1>Page Not Found</h1> },  // 404 Page  // Default Route
 

@@ -1,8 +1,5 @@
 import { OfertaDiaria } from './../../../components/carrousseis/ofertaDiaria'
-import { Promocao } from '../../../components/carrousseis/promocao';
 import { Slides } from '../../../components/carrousseis/Slides'
-import { FreteGratis } from './../../../components/carrousseis/freteGratis'
-import { Link } from 'react-router-dom'
 import styles from "./Home.module.css";
 
 
@@ -16,7 +13,7 @@ export function Home() {
                 <div className={styles.container}>
                     <OfertaDiaria />
 
-                    <section className={styles.Itens}>
+                    {/* <section className={styles.Itens}>
                         <ul>
 
                             <Link to='/Produto'>
@@ -29,10 +26,7 @@ export function Home() {
                             <li>item 5</li>
                         </ul>
 
-                    </section>
-
-                    <Promocao /><br />
-                    <FreteGratis />
+                    </section> */}
                 </div>
             </section>
         </>

@@ -5,7 +5,7 @@ import logo from "./../../assets/images/Logo_png.png";
 
 export const Header = ({ username }) => {
   const location = useLocation();
-  const isLoginPage = location.pathname === "/LoginPage";
+  // const isLoginPage = location.pathname === "/LoginPage";
 
   return (
     <header>

@@ -18,8 +18,8 @@ export const Card = ({
             <h5 className="card-title">{title}</h5>
             <p className={`card-text ${styles.card_txt}`}>{text}</p>
             <div className={styles.buttonGroup}>
-                <Link to='/Descricao'>
-                    <a href={buyButtonLink} className={`btn btn-primary ${styles.buyButton}`}>{buyButtonText}</a>
+                <Link to={`/${buyButtonLink}`}>
+                    <a href="" className={`btn btn-primary ${styles.buyButton}`}>{buyButtonText}</a>
                 </Link>
                 <a href={cartButtonLink} className={`btn btn-secondary ${styles.cartButton}`}>
                     <i className={cartButtonText}></i>
