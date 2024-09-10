@@ -1,7 +1,7 @@
 import styles from './css/Slides.module.css';
-import image1 from './../../assets/images/gojo-vs-sukuna-manga-jjk.jpg';
 import image2 from './../../assets/images/Bateria_carro.jpg'
 import image3 from './../../assets/images/Banner1.jpg'
+import slide1 from './../../assets/images/slide1.jpeg'
 
 export function Slides() {
     return (
@@ -34,7 +34,7 @@ export function Slides() {
                     <div className="carousel-inner">
                         <div className="carousel-item active">
                             <img
-                                src={image1}
+                                src={slide1}
                                 className="d-block w-100"
                                 alt="Gojo vs Sukuna"
                                 width={1810}

@@ -58,13 +58,13 @@ export function Register() {
       <h2 id={style.title}>CADASTRE-SE</h2>
       <form onSubmit={handleOnSubmit} id={style.form}>
         <div id={style.sideLeft}>
-          {/* email */}
+          {/* Email */}
           <div className="input-group input-group-sm mb-3">
-            <span className="bi bi-envelope-fill" id="inputGroup-sizing-sm">
-            </span>
+            <span className="bi bi-envelope-fill" id="inputGroup-sizing-sm"></span>
             <input
               type="text"
               id={style.email}
+              data-testid="email-input"
               onChange={handleChange}
               name="email"
               value={cliente.email}
@@ -79,11 +79,11 @@ export function Register() {
           {/* Senha */}
           <div id={style.senha}>
             <div className="input-group input-group-sm mb-3">
-              <span className="bi bi-shield-lock-fill" id="inputGroup-sizing-sm">
-              </span>
+              <span className="bi bi-shield-lock-fill" id="inputGroup-sizing-sm"></span>
               <input
                 type="password"
                 id={style.inputPassword}
+                data-testid="password-input"
                 onChange={handlePasswordChange}
                 value={cliente.senha}
                 placeholder="Senha"
@@ -95,11 +95,11 @@ export function Register() {
             </div>
 
             <div className="input-group input-group-sm mb-3">
-              <span className="bi bi-shield-lock-fill" id="inputGroup-sizing-sm">
-              </span>
+              <span className="bi bi-shield-lock-fill" id="inputGroup-sizing-sm"></span>
               <input
                 type="password"
                 id={style.inputPassword2}
+                data-testid="confirm-password-input"
                 onChange={handleConfirmPasswordChange}
                 value={confirmPassword}
                 placeholder="Repita a Senha"
@@ -112,11 +112,11 @@ export function Register() {
 
           {/* CPF */}
           <div className="input-group input-group-sm mb-3">
-            <span className="bi bi-person-vcard-fill" id="inputGroup-sizing-sm">
-            </span>
+            <span className="bi bi-person-vcard-fill" id="inputGroup-sizing-sm"></span>
             <input
               type="text"
               id={style.cpf}
+              data-testid="cpf-input"
               onChange={handleChange}
               name="cpf"
               value={cliente.cpf}
@@ -129,11 +129,11 @@ export function Register() {
 
           {/* Nome Completo */}
           <div className="input-group input-group-sm mb-3">
-            <span className="bi bi-person-fill" id="inputGroup-sizing-sm">
-            </span>
+            <span className="bi bi-person-fill" id="inputGroup-sizing-sm"></span>
             <input
               type="text"
               id={style.formNome}
+              data-testid="nome-input"
               onChange={handleChange}
               name="nome"
               value={cliente.nome}
@@ -146,7 +146,7 @@ export function Register() {
 
           {/* Gênero */}
           <div id={style.genero}>
-              <strong><label>Gênero:</label></strong>
+            <strong><label>Gênero:</label></strong>
             <div className="form-check">
               <input
                 className="form-check-input"
@@ -156,6 +156,7 @@ export function Register() {
                 onChange={handleChange}
                 checked={cliente.genero === "M"}
                 id={style.flexRadioDefault1}
+                data-testid="genero-masculino"
               />
               <label className="form-check-label" htmlFor={style.flexRadioDefault1}>
                 Masculino
@@ -170,6 +171,7 @@ export function Register() {
                 onChange={handleChange}
                 checked={cliente.genero === "F"}
                 id={style.flexRadioDefault2}
+                data-testid="genero-feminino"
               />
               <label className="form-check-label" htmlFor={style.flexRadioDefault2}>
                 Feminino
@@ -184,6 +186,7 @@ export function Register() {
                 onChange={handleChange}
                 checked={cliente.genero === "O"}
                 id={style.flexRadioDefault3}
+                data-testid="genero-outros"
               />
               <label className="form-check-label" htmlFor={style.flexRadioDefault3}>
                 Outros
@@ -193,11 +196,11 @@ export function Register() {
 
           {/* Data de Nascimento */}
           <div className="input-group input-group-sm mb-3">
-            <span className="bi bi-cake2-fill" id="inputGroup-sizing-sm">
-            </span>
+            <span className="bi bi-cake2-fill" id="inputGroup-sizing-sm"></span>
             <input
               type="date"
               id={style.calendar}
+              data-testid="data-nasc-input"
               onChange={handleChange}
               name="data_nasc"
               value={cliente.data_nasc}
@@ -213,6 +216,7 @@ export function Register() {
             <input
               className="form-check-input checkbox-custom"
               type="checkbox"
+              data-testid="termos-checkbox"
               value=""
               id={style.flexCheckDefault}
               required
@@ -224,7 +228,9 @@ export function Register() {
         </div>
 
         {/* Botão de Cadastro */}
-        <button type="submit" className={style.btnConfirm}>CADASTRAR</button>
+        <button type="submit" className={style.btnConfirm} data-testid="submit-button">
+          CADASTRAR
+        </button>
       </form>
     </div>
   );
