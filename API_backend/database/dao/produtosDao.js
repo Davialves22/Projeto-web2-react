@@ -1,6 +1,7 @@
 const db = require("../config");
 
 let operations = {
+    // TODO - filtrar por nome, ou por categoria
     list: () => {
         return db.promise().execute('SELECT * FROM produtos');
     },

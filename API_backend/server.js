@@ -74,6 +74,27 @@ db.execute(
   }
 );
 
+db.execute(
+  `INSERT INTO produtos (produto_id, nome, descricao, preco, imagem_produto, categoria, quantidade) VALUES
+(1011, 'Produto 1', 'Texto personalizado para o Card 1.', 29.99, 'https://picsum.photos/id/1011/185/132', 'Categoria1', 10),
+(1012, 'Produto 2', 'Texto personalizado para o Card 2.', 49.99, 'https://picsum.photos/id/1012/185/132', 'Categoria2', 10),
+(1013, 'Produto 3', 'Texto personalizado para o Card 3.', 19.99, 'https://picsum.photos/id/1013/185/132', 'Categoria3', 10),
+(1014, 'Produto 4', 'Texto personalizado para o Card 4.', 39.99, 'https://picsum.photos/id/1014/185/132', 'Categoria4', 10),
+(1015, 'Produto 5', 'Texto personalizado para o Card 5.', 29.99, 'https://picsum.photos/id/1015/185/132', 'Categoria5', 10),
+(1016, 'Produto 6', 'Texto personalizado para o Card 6.', 59.99, 'https://picsum.photos/id/1016/185/132', 'Categoria6', 10),
+(1017, 'Produto 7', 'Texto personalizado para o Card 7.', 15.99, 'https://picsum.photos/id/107/185/132', 'Categoria7', 10),
+(1018, 'Produto 8', 'Texto personalizado para o Card 8.', 25.99, 'https://picsum.photos/id/1018/185/132', 'Categoria8', 10),
+(1019, 'Produto 9', 'Texto personalizado para o Card 9.', 45.99, 'https://picsum.photos/id/1019/185/132', 'Categoria9', 10),
+(1020, 'Produto 10', 'Texto personalizado para o Card 10.', 35.99, 'https://picsum.photos/id/1020/185/132', 'Categoria10', 10);
+`,
+err => {
+  console.log("seeds criadas para tabela produtos")
+});
+
+
+
+
+
 app.listen(PORT, () => {
   console.log(`Servidor rodando em: http://localhost:${PORT}`);
 });
