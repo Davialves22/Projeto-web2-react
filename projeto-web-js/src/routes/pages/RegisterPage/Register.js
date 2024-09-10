@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import style from "./Register.module.css";
 import { useState } from "react";
 import axios from "axios";
@@ -36,7 +35,7 @@ export function Register() {
     }
 
     try {
-      const res = await axios.post("http://localhost:3001/clientes", cliente);
+      const res = await axios.post("http://localhost:3001/clientes/", cliente);
       console.log(res);
       alert("Cliente cadastrado com sucesso");
       setClientes({
@@ -69,6 +68,7 @@ export function Register() {
               onChange={handleChange}
               name="email"
               value={cliente.email}
+              placeholder="E-mail"
               className="form-control"
               aria-label="Email"
               aria-describedby="inputGroup-sizing-sm"
@@ -86,6 +86,7 @@ export function Register() {
                 id={style.inputPassword}
                 onChange={handlePasswordChange}
                 value={cliente.senha}
+                placeholder="Senha"
                 className="form-control"
                 aria-label="Senha"
                 aria-describedby="passwordHelpInline"
@@ -101,6 +102,7 @@ export function Register() {
                 id={style.inputPassword2}
                 onChange={handleConfirmPasswordChange}
                 value={confirmPassword}
+                placeholder="Repita a Senha"
                 className="form-control"
                 aria-label="Confirmar Senha"
                 aria-describedby="passwordHelpInline"
@@ -118,6 +120,7 @@ export function Register() {
               onChange={handleChange}
               name="cpf"
               value={cliente.cpf}
+              placeholder="CPF"
               className="form-control"
               aria-label="CPF"
               aria-describedby="inputGroup-sizing-sm"
@@ -134,6 +137,7 @@ export function Register() {
               onChange={handleChange}
               name="nome"
               value={cliente.nome}
+              placeholder="Nome"
               className="form-control"
               aria-label="Nome Completo"
               aria-describedby="inputGroup-sizing-sm"
@@ -142,6 +146,7 @@ export function Register() {
 
           {/* Gênero */}
           <div id={style.genero}>
+              <strong><label>Gênero:</label></strong>
             <div className="form-check">
               <input
                 className="form-check-input"
@@ -199,6 +204,7 @@ export function Register() {
               className="form-control"
               aria-label="Data de Nascimento"
               aria-describedby="inputGroup-sizing-sm"
+              required
             />
           </div>
 
@@ -218,9 +224,7 @@ export function Register() {
         </div>
 
         {/* Botão de Cadastro */}
-        <Link to="/">
-          <button type="submit" className={style.btnConfirm}>CADASTRAR</button>
-        </Link>
+        <button type="submit" className={style.btnConfirm}>CADASTRAR</button>
       </form>
     </div>
   );

@@ -106,6 +106,16 @@
   background-color: #FBD38D;
 }
 
+#flexCheckDefault,
+#flexRadioDefault2 {
+  background-color: #FBD38D;
+}
+
+#flexCheckDefault,
+#flexRadioDefault3 {
+  background-color: #FBD38D;
+}
+
 @media (max-width: 1024px) {
   #main {
     width: 70%;

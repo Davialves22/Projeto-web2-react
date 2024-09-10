@@ -5,7 +5,7 @@ const db = mysql.createConnection({
   user: 'root',
   password: 'root',
   database: 'api_autoPecaSeguro',
-  port:3306
+  port:3307
 });
 
 module.exports = db;
