@@ -14,6 +14,40 @@ router.get("/", (req, res) => {
         });
 });
 
+// testar
+router.get("/", (req, res) => {
+    const nome = req.query.nome;
+    operations.findByName(nome)
+        .then(([rows]) => {
+            if (rows.length > 0) {
+                res.json(rows[0]);
+            } else {
+                res.status(404).send('Nome não encontrado');
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).send("Erro ao buscar nome");
+        });
+});
+
+//testar
+router.get("/", (req, res) => {
+    const categoria = req.query.categoria;
+    operations.findByCategoria(categoria)
+        .then(([rows]) => {
+            if (rows.length > 0) {
+                res.json(rows[0]);
+            } else {
+                res.status(404).send('Categoria não encontrada');
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).send("Erro ao buscar categoria");
+        });
+});
+
 //funcionou
 router.get("/:produto_id", (req, res) => {
     const produto_id = req.params.produto_id;

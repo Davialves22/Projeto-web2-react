@@ -11,6 +11,15 @@ let operations = {
         );
     },
 
+    findByName: (nome) => {
+        return db.promise().execute('SELECT * FROM products WHERE nome LIKE ?', [`%${nome}%`]);
+    },
+
+    findByCategoria: (categoria) => {
+        return db.promise().execute('SELECT * FROM produtos WHERE categoria = ?', [categoria]
+        );
+    },
+
     save: (nome, descricao, preco, imagem_produto, categoria, quantidade) => {
         return db.promise().execute(
             'INSERT INTO produtos (nome, descricao, preco, imagem_produto, categoria, quantidade) VALUES (?, ?, ?, ?, ?, ?)',

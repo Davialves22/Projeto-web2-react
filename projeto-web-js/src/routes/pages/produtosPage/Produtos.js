@@ -14,11 +14,10 @@ export function Produto() {
     ];
 
     return (
-
         <section className={`container`}>
             <div className={`row g-5 my-5 p-5`}>
                 {cardsData.map((card, index) => (
-                    <div key={index} className="col-12 col-md-3 mb-5 justify-content-center gap-2">
+                    <div key={cardsData.id} className="col-12 col-md-3 mb-5 justify-content-center gap-2">
                         <Card
                             title={card.title}
                             text={`Preço: R$ ${card.price}\n${card.text}`}

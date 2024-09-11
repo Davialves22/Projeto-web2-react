@@ -12,13 +12,12 @@ export const Header = ({ username }) => {
   const [text, setText] = useState('');
   useEffect(() => {
     if(text){
-      fetch(`${api}produto?filtrer[text]=${text}`)
+      fetch(`${api}/produto?filtrer[text]=${text}`)
       .then()
     }
   }, [text]);
+
   // const isLoginPage = location.pathname === "/LoginPage";
-
-
 
   return (
     <header>

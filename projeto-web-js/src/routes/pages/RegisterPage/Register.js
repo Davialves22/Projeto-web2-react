@@ -120,6 +120,7 @@ export function Register() {
               onChange={handleChange}
               name="cpf"
               value={cliente.cpf}
+               maxlength="11"
               placeholder="CPF"
               className="form-control"
               aria-label="CPF"
