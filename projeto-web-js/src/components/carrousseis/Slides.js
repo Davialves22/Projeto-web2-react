@@ -1,7 +1,7 @@
 import styles from './css/Slides.module.css';
-import image2 from './../../assets/images/Bateria_carro.jpg'
-import image3 from './../../assets/images/Banner1.jpg'
-import slide1 from './../../assets/images/slide1.jpeg'
+import Slide1 from './../../assets/images/garantia.png'
+import Slide2 from './../../assets/images/ofertas_diarias.png'
+import Slide3 from './../../assets/images/descontos.png'
 
 export function Slides() {
     return (
@@ -34,33 +34,33 @@ export function Slides() {
                     <div className="carousel-inner">
                         <div className="carousel-item active">
                             <img
-                                src={slide1}
+                                src={Slide1}
                                 className="d-block w-100"
-                                alt="Gojo vs Sukuna"
-                                width={1810}
-                                height={450}
+                                alt="Slide1"
+                                width={1500}
+                                height={270}
                                 style={{ objectFit: "fill", objectPosition: "center top" }}
                             />
                         </div>
 
                         <div className="carousel-item">
                             <img
-                                src={image2}
+                                src={Slide2}
                                 className="d-block w-100"
                                 alt="Baterias"
                                 width={1920}
-                                height={200}
+                                height={270}
                                 style={{ objectFit: 'fill', objectPosition: 'center top' }}
                             />
                         </div>
 
                         <div className="carousel-item">
                             <img
-                                src={image3}
+                                src={Slide3}
                                 className="d-block w-100"
                                 alt="Banner 3"
                                 width={1920}
-                                height={200}
+                                height={270}
                                 style={{ objectFit: 'fill', objectPosition: 'center top' }}
                             />
                         </div>

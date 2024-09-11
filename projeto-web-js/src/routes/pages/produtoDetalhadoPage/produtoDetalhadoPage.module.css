@@ -1,0 +1,160 @@
+.container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.productImageWrapper {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--third-color);
+    border-radius: 8px;
+    background-color: var(--fourth-color);
+    max-height: 100%;
+    width: 20rem;
+    height: 20rem;
+    margin: 6rem 1rem 6rem 10rem;
+}
+
+.productImage {
+    transition: transform 0.3s ease;
+}
+
+.zoomed {
+    transform: scale(1.5);
+}
+
+.productTitle {
+    color: var(--second-color);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.produtoDetalhado {
+    color: var(--sixth-color);
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+.buttonGroup {
+    margin-top: 20px;
+}
+
+.buyButton {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.cartButton {
+    background-color: var(--primary-color);
+    border-color: var(--fifth-color);
+}
+
+.btn {
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+    opacity: 0.8;
+}
+
+.row {
+    margin: 0;
+}
+
+.col-md-6 {
+    padding: 0 15px;
+}
+
+/* Consultas de Mídia */
+
+@media (max-width: 1200px) {
+    .productImageWrapper {
+        width: 18rem;
+        height: 18rem;
+        margin: 4rem 1rem 4rem 6rem;
+    }
+    
+    .productTitle {
+        font-size: 1.75rem;
+    }
+    
+    .produtoDetalhado {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .productImageWrapper {
+        width: 16rem;
+        height: 16rem;
+        margin: 3rem 1rem;
+    }
+    
+    .productTitle {
+        font-size: 1.5rem;
+    }
+    
+    .produtoDetalhado {
+        font-size: 0.85rem;
+    }
+
+    .buttonGroup {
+        flex-direction: column;
+    }
+    
+    .btn {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .productImageWrapper {
+        width: 14rem;
+        height: 14rem;
+        margin: 2rem 0;
+    }
+    
+    .productTitle {
+        font-size: 1.25rem;
+    }
+    
+    .produtoDetalhado {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .productImageWrapper {
+        width: 12rem;
+        height: 12rem;
+        margin: 1rem 0;
+    }
+    
+    .productTitle {
+        font-size: 1rem;
+    }
+    
+    .produtoDetalhado {
+        font-size: 0.75rem;
+    }
+    
+    .buttonGroup {
+        text-align: center;
+    }
+
+    .btn {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}

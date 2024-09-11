@@ -1,6 +1,7 @@
 import { OfertaDiaria } from './../../../components/carrousseis/ofertaDiaria'
 import { Slides } from '../../../components/carrousseis/Slides'
 import styles from "./Home.module.css";
+import { Produto } from '../produtosPage/Produtos';
 
 
 
@@ -28,6 +29,12 @@ export function Home() {
 
                     </section> */}
                 </div>
+
+                <section id='produtos'>
+                    <h1>Produtos</h1>
+                    <Produto/>
+                </section>
+
             </section>
         </>
     );

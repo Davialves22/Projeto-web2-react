@@ -10,6 +10,12 @@
     text-align: center;
 }
 
+p{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
 @media (max-width: 768px) {
     .footer {
         flex-direction: column;

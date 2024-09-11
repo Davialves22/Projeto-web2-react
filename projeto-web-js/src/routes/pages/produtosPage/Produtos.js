@@ -1,30 +1,41 @@
+import React, { useState, useEffect } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card } from './../../../components/card/Card';
+import ProdutoService from '../../../services/produtoService';
 
 export function Produto() {
+    const [produtos, setProdutos] = useState([]);
 
-    const cardsData = [
-        { id: "1011", title: "Produto 1", text: "Texto personalizado para o Card 1.", imageSrc: "https://picsum.photos/id/1011/185/132", price: 29.99 },
-        { id: "1012", title: "Produto 2", text: "Texto personalizado para o Card 2.", imageSrc: "https://picsum.photos/id/1012/185/132", price: 49.99 },
-        { id: "1013", title: "Produto 3", text: "Texto personalizado para o Card 3.", imageSrc: "https://picsum.photos/id/1013/185/132", price: 19.99 },
-        { id: "1014", title: "Produto 4", text: "Texto personalizado para o Card 4.", imageSrc: "https://picsum.photos/id/1014/185/132", price: 39.99 },
-        { id: "1011", title: "Produto 5", text: "Texto personalizado para o Card 5.", imageSrc: "https://picsum.photos/id/1011/185/132", price: 29.99 },
-        { id: "1012", title: "Produto 6", text: "Texto personalizado para o Card 6.", imageSrc: "https://picsum.photos/id/1012/185/132", price: 49.99 },
-        { id: "1013", title: "Produto 7", text: "Texto personalizado para o Card 7.", imageSrc: "https://picsum.photos/id/1013/185/132", price: 19.99 },
-        { id: "1014", title: "Produto 8", text: "Texto personalizado para o Card 8.", imageSrc: "https://picsum.photos/id/1014/185/132", price: 39.99 },
-    ];
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await ProdutoService.getProdutos();
+                setProdutos(response.data);
+            } catch (err) {
+                console.log(err);
+            }
+        };
+
+        fetchData();
+    }, []);
+
+    const convertToBRL = (priceUSD) => {
+        const exchangeRate = 5.00; // Taxa de câmbio simulada
+        return (priceUSD * exchangeRate).toFixed(2);
+    };
 
     return (
-        <section className={`container`}>
-            <div className={`row g-5 my-5 p-5`}>
-                {cardsData.map((card, index) => (
-                    <div key={cardsData.id} className="col-12 col-md-3 mb-5 justify-content-center gap-2">
+        <section className="container">
+            <div className="row g-5 my-5 p-5">
+                {produtos.map((produto) => (
+                    <div key={produto.id} className="col-12 col-md-3 mb-5 d-flex justify-content-center">
                         <Card
-                            title={card.title}
-                            text={`Preço: R$ ${card.price}\n${card.text}`}
-                            imageSrc={card.imageSrc}
+                            title={produto.nome}
+                            text={`Preço: R$ ${convertToBRL(produto.preco)}\n${produto.descricao}`}
+                            imageSrc={produto.imagem_produto}
                             buyButtonText="Comprar"
-                            buyButtonLink="#"
-                            cartButtonText="bi bi-cart"
+                            buyButtonLink={`Descricao/${produto.id}`}
+                            cartButtonText="bi bi-cart4"
                             cartButtonLink="#"
                         />
                     </div>

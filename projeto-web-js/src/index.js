@@ -8,11 +8,12 @@ import 'atropos/css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Home } from "./routes/pages/homePage/Home";
 import { Login } from "./routes/pages/loginPage/Login";
-import { Register} from "./routes/pages/RegisterPage/Register";
+import { Register } from "./routes/pages/RegisterPage/Register";
 import { Produto } from './routes/pages/produtosPage/Produtos';
 import { CadastroProdutos } from './routes/pages/produtosAddPage/CadastroProdutos';
 import { ForgetPass } from './routes/pages/forgetPass/ForgetPass';
 import { ProdutoDetalhado } from './routes/pages/produtoDetalhadoPage/produtoDetalhadoPage';
+import {Carrinho} from './routes/pages/CartPage/Carrinho';
 
 
 const router = createBrowserRouter([
@@ -21,10 +22,11 @@ const router = createBrowserRouter([
       { path: '/', element: <Home /> },
       { path: '/Login', element: <Login /> },
       { path: '/Produto', element: <Produto /> },
-      { path: '/Produto-add', element: <CadastroProdutos/> },
+      { path: '/Produto-add', element: <CadastroProdutos /> },
       { path: '/Register', element: <Register /> },
       { path: '/Descricao/:id', element: <ProdutoDetalhado /> },
-      { path: '/ForgetPass', element: <ForgetPass/> },
+      { path: "/carrinho/:id", element: <Carrinho /> }, // Adicione a rota para o Carrinho
+      { path: '/ForgetPass', element: <ForgetPass /> },
       { path: '*', element: <h1>Page Not Found</h1> },  // 404 Page  // Default Route
 
     ]

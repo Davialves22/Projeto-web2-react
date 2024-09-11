@@ -1,0 +1,109 @@
+.carrinho {
+    padding: 20px;
+    background-color: var(--fourth-color);
+}
+
+.productImageWrapper {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--third-color);
+    border-radius: 8px;
+    background-color: #fff;
+    margin: 1rem 0;
+}
+
+.productImage {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.productTitle {
+    color: var(--second-color);
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.productDescription {
+    color: var(--sixth-color);
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.productPrice {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.buttonGroup {
+    display: flex;
+    gap: 10px;
+}
+
+.buyButton {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.cartButton {
+    background-color: var(--second-color);
+    border-color: var(--second-color);
+}
+
+.btn {
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .productImageWrapper {
+        margin: 1rem 0;
+    }
+
+    .productTitle {
+        font-size: 1.5rem;
+    }
+
+    .productDescription,
+    .productPrice {
+        font-size: 0.9rem;
+    }
+
+    .buttonGroup {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .btn {
+        font-size: 0.9rem;
+        padding: 8px 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .productTitle {
+        font-size: 1.2rem;
+    }
+
+    .productDescription,
+    .productPrice {
+        font-size: 0.8rem;
+    }
+
+    .btn {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+}
