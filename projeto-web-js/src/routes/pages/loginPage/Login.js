@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "./Login.css";
+import { useNavigate } from 'react-router-dom';
 
 // NÃO EXCLUAM ALGO NA TELA SEM REFAZER O TESTID, PARA NÃO DAR ERRO
 
@@ -9,6 +10,7 @@ export function Login() {
     const [password, setPassword] = useState('');
     const [emailError, setEmailError] = useState('');
     const [passwordError, setPasswordError] = useState('');
+    const navigate = useNavigate();
 
     const validateEmail = (value) => {
         if (value.length === 0) {
@@ -49,10 +51,15 @@ export function Login() {
         e.preventDefault();
         validateEmail(email);
         validatePassword(password);
+
+        if (email == "admin@admin.com" && password == "admin") {
+            navigate("/Produto-add");
+        } else {
+            navigate("/")
+        }
     };
 
     // Trechos como esse: {emailError && <div data-testid="email-error" className="error-message">{emailError}</div>} implementam o teste no DOM (NÃO EXCLUIR)
-
     return (
         <main>
             <section id="login">
@@ -93,21 +100,16 @@ export function Login() {
                             {passwordError && <div data-testid="password-error" className="error-message">{passwordError}</div>}
                         </div>
 
-
                         <Link to='/ForgetPass'>
-                            <p id = "Forget">
+                            <p id="Forget">
                                 esqueceu a senha?
                             </p>
                         </Link>
-
-                        <Link to="/">
-                            <button className="btnConfirm"
-                                data-testid="login-button"
-                                disabled={!isFormValid()}>
-                                LOGIN
-                            </button>
-                        </Link>
-
+                        <button className="btnConfirm"
+                            data-testid="login-button"
+                            disabled={!isFormValid()}>
+                            LOGIN
+                        </button>
                     </form>
                 </div>
             </section>

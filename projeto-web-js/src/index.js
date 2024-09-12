@@ -28,7 +28,6 @@ const router = createBrowserRouter([
       { path: '/Carrinho/:id', element: <Carrinho /> },
       { path: '/ForgetPass', element: <ForgetPass /> },
       { path: '*', element: <h1>Page Not Found</h1> },  // 404 Page  // Default Route
-
     ]
   }
 ])
