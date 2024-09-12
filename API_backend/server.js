@@ -41,7 +41,7 @@ db.execute(
     descricao TEXT NOT NULL,
     preco DOUBLE NOT NULL,
     imagem_produto VARCHAR (255) NOT NULL,
-    categoria VARCHAR(100) NOT NULL,
+    categoria ENUM('Pneu', 'Motor', 'Bateria', 'Freio', 'Suspensão') NOT NULL,
 	  quantidade INT NOT NULL
   );
 `,

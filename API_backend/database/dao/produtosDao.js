@@ -2,8 +2,21 @@ const db = require("../config");
 
 let operations = {
     // TODO - filtrar por nome, ou por categoria
-    list: () => {
-        return db.promise().execute('SELECT * FROM produtos');
+    list: (nome, categoria) => {
+        let query = 'SELECT * FROM produtos';
+        let params = [];
+        if(nome && categoria) { 
+            query += " WHERE nome LIKE ? AND categoria = ?";
+            params = [`%${nome}%`, categoria];
+        } else if(nome) {
+            query += " WHERE nome LIKE ?";
+            params = [`%${nome}%`];
+        } else if(categoria) {
+            query += " WHERE categoria = ?";
+            params = [categoria];
+        }
+
+        return db.promise().execute(query, params);
     },
     
     findById: (produto_id) => {
