@@ -31,12 +31,12 @@ export function Produto() {
                     <div key={produto.id} className="col-12 col-md-3 mb-5 d-flex justify-content-center">
                         <Card
                             title={produto.nome}
-                            text={`Preço: R$ ${convertToBRL(produto.preco)}\n${produto.descricao}`}
+                            text={`Preço: R$ ${convertToBRL(produto.preco)}\n${produto.descricao}`} // Você pode querer ajustar a formatação aqui
                             imageSrc={produto.imagem_produto}
                             buyButtonText="Comprar"
-                            buyButtonLink={`Descricao/${produto.id}`}
-                            cartButtonText="bi bi-cart4"
-                            cartButtonLink="#"
+                            buyButtonLink={`Descricao/${produto.id}`} // Corrigido para usar o ID do produto
+                            cartButtonText="bi bi-cart"
+                            cartButtonLink={`Carrinho/${produto.id}`} // Corrigido para usar o ID do produto
                         />
                     </div>
                 ))}

@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import stylesFirst from './css/OfertaDaria.module.css';
 import { Card } from '../card/Card';
-import { Link } from 'react-router-dom';
 import ProdutoService from '../../services/produtoService';
+import { Link } from 'react-router-dom';
 
 export const OfertaDiaria = () => {
     const [produtos, setProdutos] = useState([]);
@@ -58,9 +58,9 @@ export const OfertaDiaria = () => {
                                                     text={`${card.descricao}\nPreço: R$ ${convertToBRL(card.preco)}`}
                                                     imageSrc={card.imagem_produto}
                                                     buyButtonText="Comprar"
-                                                    buyButtonLink={`Descricao/${card.produto_id}`}
-                                                    cartButtonText="bi bi-cart4"
-                                                    cartButtonLink="#"
+                                                    buyButtonLink={`Descricao/${card.id}`} // Corrigido para usar o ID do produto
+                                                    cartButtonText="bi bi-cart" // Nome correto da classe do ícone
+                                                    cartButtonLink={`Carrinho/${card.id}`} // Corrigido para usar o ID do produto
                                                 />
                                             </div>
                                         ))}
@@ -93,9 +93,6 @@ export const OfertaDiaria = () => {
 
                 <Link to='/Produto' className={stylesFirst.vejaMais}><p>Veja mais...</p></Link>
             </section>
-
-        
-
         </>
     );
 };

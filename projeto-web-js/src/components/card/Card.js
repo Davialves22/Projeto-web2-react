@@ -10,7 +10,7 @@ export const Card = ({
     buyButtonText,
     buyButtonLink,
     cartButtonText,
-    produto // Adicione esta prop
+    cartButtonLink,
 }) => (
     <div className={`card ${styles.Card}`}>
         <img src={imageSrc} className="card-img-top" alt={title} />
@@ -18,17 +18,11 @@ export const Card = ({
             <h5 className="card-title">{title}</h5>
             <p className={`card-text ${styles.card_txt}`}>{text}</p>
             <div className={styles.buttonGroup}>
-                <Link to={`/${buyButtonLink}`} className={`btn btn-primary ${styles.buyButton}`}>
+                <Link to={buyButtonLink} className={`btn btn-primary ${styles.buyButton}`}>
                     {buyButtonText}
                 </Link>
-                <Link
-                    to={{
-                        pathname: `/carrinho`,
-                        state: { produto } // Passa o produto para o carrinho
-                    }}
-                    className={`btn btn-secondary ${styles.cartButton}`}
-                >
-                    <i className={cartButtonText}></i>
+                <Link to={cartButtonLink} className={`btn btn-secondary ${styles.cartButton}`}>
+                    <i className={cartButtonText}></i> {/* Adiciona o ícone no botão */}
                 </Link>
             </div>
         </div>
