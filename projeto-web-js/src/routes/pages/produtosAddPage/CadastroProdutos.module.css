@@ -1,0 +1,55 @@
+.container {
+  max-width: 100%;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 10rem;
+  margin-bottom: 5rem;
+  padding: 2rem;
+  background-color: rgba(237, 137, 54, 0.5);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  text-align: center;
+  font-size: 2em;
+  color: #333;
+}
+
+.formLabel {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.formControl {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.btn {
+  width: auto; /* Ajuste aqui */
+  padding: 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .btn {
+    width: 100%;
+  }
+}

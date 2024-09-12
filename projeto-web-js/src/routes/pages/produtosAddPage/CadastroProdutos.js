@@ -1,16 +1,24 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import ListaProdutos from "../../../components/listaProdutos/ListaProdutos";
+import styles from './CadastroProdutos.module.css'; // Importa o CSS Module
 
 export function CadastroProdutos() {
-  const [produto, setProduto] = useState({ nome: '', descricao: '', preco: '', imagem_produto: '', categoria: '', quantidade: '' });
+  const [produto, setProduto] = useState({
+    nome: '',
+    descricao: '',
+    preco: '',
+    imagem_produto: '',
+    categoria: '',
+    quantidade: ''
+  });
 
   const handleChange = (event) => {
     setProduto({ ...produto, [event.target.name]: event.target.value });
   }
 
-  const handleOnSubmit = async () => {
+  const handleOnSubmit = async (event) => {
+    event.preventDefault(); // Adiciona prevenção de comportamento padrão do formulário
     try {
       const res = await axios.post("http://localhost:3001/produtos", produto);
       console.log(res);
@@ -31,31 +39,66 @@ export function CadastroProdutos() {
 
   return (
     <>
-      <div className='container'>
+      <div className={styles.container}>
         <div>
-          <h1>Cadastro de Produtos</h1>
+          <h1 className={styles.title}>Cadastro de Produtos</h1>
           <form onSubmit={handleOnSubmit}>
             <div className="row">
               <div>
-                <label className='form-Label' >Nome do Produto</label>
-                <input onChange={handleChange} value={produto.nome} name="nome" type='text' className='form-control' required />
+                <label className={styles.formLabel}>Nome do Produto</label>
+                <input
+                  onChange={handleChange}
+                  value={produto.nome}
+                  name="nome"
+                  type='text'
+                  className={styles.formControl}
+                  required
+                />
               </div>
               <div>
-                <label className='form-Label'>Descrição do Produto</label>
-                <input onChange={handleChange} value={produto.descricao} name="descricao" type='text' className='form-control' required />
+                <label className={styles.formLabel}>Descrição do Produto</label>
+                <input
+                  onChange={handleChange}
+                  value={produto.descricao}
+                  name="descricao"
+                  type='text'
+                  className={styles.formControl}
+                  required
+                />
               </div>
               <div>
-                <label className='form-Label'>Preço do Produto</label>
-                <input onChange={handleChange} value={produto.preco} name="preco" type="number" className='form-control' required />
+                <label className={styles.formLabel}>Preço do Produto</label>
+                <input
+                  onChange={handleChange}
+                  value={produto.preco}
+                  name="preco"
+                  type="number"
+                  className={styles.formControl}
+                  required
+                />
               </div>
               <div>
-                <label className='form-Label'>Link imagem do Produto</label>
-                <input onChange={handleChange} value={produto.imagem_produto} name="imagem_produto" type='text' className='form-control' required />
+                <label className={styles.formLabel}>Link imagem do Produto</label>
+                <input
+                  onChange={handleChange}
+                  value={produto.imagem_produto}
+                  name="imagem_produto"
+                  type='text'
+                  className={styles.formControl}
+                  required
+                />
               </div>
               <div>
-                <label className='form-Label'>Categoria do Produto</label>
-                <select onChange={handleChange} value={produto.categoria} name="categoria" required class="form-select" aria-label="">
-                  <option selected disabled></option>
+                <label className={styles.formLabel}>Categoria do Produto</label>
+                <select
+                  onChange={handleChange}
+                  value={produto.categoria}
+                  name="categoria"
+                  required
+                  className={styles.formControl}
+                  aria-label=""
+                >
+                  <option value="" disabled></option>
                   <option value="Pneu">Pneu</option>
                   <option value="Motor">Motor</option>
                   <option value="Bateria">Bateria</option>
@@ -64,11 +107,22 @@ export function CadastroProdutos() {
                 </select>
               </div>
               <div>
-                <label className='form-Label'>Quantidade do Produto</label>
-                <input onChange={handleChange} value={produto.quantidade} name="quantidade" type="number" className='form-control' required />
+                <label className={styles.formLabel}>Quantidade do Produto</label>
+                <input
+                  onChange={handleChange}
+                  value={produto.quantidade}
+                  name="quantidade"
+                  type="number"
+                  className={styles.formControl}
+                  required
+                />
               </div>
               <div>
-                <input className="btn btn-primary" type="submit" value="Cadastrar" />
+                <input
+                  className={styles.btn}
+                  type="submit"
+                  value="Cadastrar"
+                />
               </div>
             </div>
           </form>
