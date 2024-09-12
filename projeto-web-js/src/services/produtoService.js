@@ -2,8 +2,8 @@ import RequisicaoService from "./RequisicaoService";
 
 const ProdutoService = {
 
-    async getProdutos(nomeProduto = "", categoria = "") {
-        const header = { nomeProduto, categoria }
+    async getProdutos(nome = "", categoria = "") {
+        const header = { nome, categoria }
         return await RequisicaoService.get(`produtos`, header);
     },
     async getProdutoById(produtoId) {

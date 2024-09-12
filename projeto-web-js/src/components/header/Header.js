@@ -1,23 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import classes from "./Header.module.css";
 import logo from "./../../assets/images/Logo_png.png";
-import { SearchInput } from './../SearchBar/SearchInput'
-
-const api = 'http://localhost:3001';
 
 export const Header = ({ username }) => {
-  const location = useLocation();
-
-  const [text, setText] = useState('');
-  useEffect(() => {
-    if(text){
-      fetch(`${api}/produto?filtrer[text]=${text}`)
-      .then()
-    }
-  }, [text]);
-
-  // const isLoginPage = location.pathname === "/LoginPage";
+  // const location = useLocation();
 
   return (
     <header>
@@ -27,17 +14,15 @@ export const Header = ({ username }) => {
             <img src={logo} alt="Logo" width="100" height="90" />
           </a>
 
-
-          <div className={`${classes.inputGroup} ms-auto me-auto`}>
-            <form class="d-flex" role="search">
-
-
-              <SearchInput
-                value={text}
-                onChange={(search) => setText(search)}
-              />
-
-            </form>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="/produto">Produtos</a>
+              </li>
+            </ul>
           </div>
 
           <div id={classes.navBarOptions}>
@@ -57,6 +42,7 @@ export const Header = ({ username }) => {
                 />
               </svg>
             </div>
+            
             <div id={classes.options}>
               <span>{username || "Usuário"}</span>
 

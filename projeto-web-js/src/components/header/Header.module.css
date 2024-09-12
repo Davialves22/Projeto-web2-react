@@ -1,11 +1,10 @@
 /* Base Styles */
 #navbar {
     background-color: var(--primary-color);
-    border-radius: 10px;
     box-sizing: border-box;
     max-width: 3150px;
-    width: 95%;
-    margin: 1% auto;
+    width: 100%;
+    margin: 0 auto;
 }
 
 #search {
@@ -18,7 +17,6 @@
     padding: 1%;
     border-radius: 10px;
     color: white;
-    width: 12%;
     display: flex;
     justify-content: space-around;
     margin: 0 2%;

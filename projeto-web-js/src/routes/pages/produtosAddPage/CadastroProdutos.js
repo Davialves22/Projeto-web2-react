@@ -53,7 +53,14 @@ export function CadastroProdutos() {
             </div>
             <div>
               <label className='form-Label'>Categoria do Produto</label>
-              <input onChange={handleChange} value={produto.categoria} name="categoria" type='text' className='form-control' required />
+              <select onChange={handleChange} value={produto.categoria} name="categoria" required class="form-select" aria-label="">
+                <option selected disabled></option>
+                <option value="Pneu">Pneu</option>
+                <option value="Motor">Motor</option>
+                <option value="Bateria">Bateria</option>
+                <option value="Freio">Freio</option>
+                <option value="Suspensão">Suspensão</option>
+              </select>
             </div>
             <div>
               <label className='form-Label'>Quantidade do Produto</label>
