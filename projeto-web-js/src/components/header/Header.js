@@ -1,62 +1,65 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import classes from "./Header.module.css";
 import logo from "./../../assets/images/Logo_png.png";
+import LocalStoregeHelper from "../../helpers/localStorage.helper";
+import { Link } from 'react-router-dom';
 
-export const Header = ({ username }) => {
-  // const location = useLocation();
+
+
+
+export const Header = () => {
+  const user = LocalStoregeHelper.getUserLogged();
+  const navigate = useNavigate();
+
+  const logOut = () => {
+    LocalStoregeHelper.logOut();
+    alert("Logout realizado com sucesso!")
+    navigate("/");
+  }
 
   return (
     <header>
       <nav id={classes.navbar} className="navbar navbar-expand-lg navbar-light">
         <div className="container-fluid">
-          <a className="navbar-brand" href="/">
+          <Link to="/" className="navbar-brand">
             <img src={logo} alt="Logo" width="100" height="90" />
-          </a>
+          </Link>
 
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/produto">Produtos</a>
-              </li>
-            </ul>
-          </div>
-
-          <div id={classes.navBarOptions}>
-            <div id={classes.navBarUser}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="35"
-                height="35"
-                fill="currentColor"
-                class="bi bi-person-circle"
-                viewBox="0 0 16 16"
-              >
-                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
-                <path
-                  fill-rule="evenodd"
-                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"
-                />
-              </svg>
-            </div>
-            
-            <div id={classes.options}>
-              <span>{username || "Usuário"}</span>
-
-              <div id={classes.navBarLinks}>
-                {/* TO FIX - mudar o redirecionamento do link */}
-                <Link to="/MinhaConta" class={classes.btnOp}>
-                  Minha Conta
-                </Link>
-                |
-                <Link to="/Login" class={classes.btnOp}>
-                  Sair
-                </Link>
-              </div>
-            </div>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <Link to="/" className="nav-link" aria-current="page" href="/">Home</Link>
+            </li>
+            <li class="nav-item">
+              <Link to="/Produto" className="nav-link" aria-current="page">Produtos</Link>
+            </li>
+          </ul>
+          {
+            user ? (
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                  <button className="nav-link dropdown-toggle btn btn-link" id="navbarDropdownMenuLink" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {user.nome}
+                  </button>
+                  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                    <li><Link to="MinhaConta" className="dropdown-item" >Minha Conta</Link></li>
+                    <li><button className="dropdown-item" onClick={logOut}>Sair</button></li>
+                  </ul>
+                </li>
+              </ul>
+            ) : (
+              <ul class="nav navbar-nav ml-auto">
+                <li class="nav-item">
+                  <Link to="/Register" className="nav-link">Cadastrar-se</Link>
+                </li>
+                <li class="nav-item">
+                  <Link to="/Login" className="btn" id={classes.navBarButton}>Login</Link>
+                </li>
+              </ul>
+            )
+          }
+          
           </div>
         </div>
       </nav>

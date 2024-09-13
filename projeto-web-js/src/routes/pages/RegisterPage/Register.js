@@ -1,8 +1,10 @@
 import style from "./Register.module.css";
 import { useState } from "react";
-import axios from "axios";
+import { useNavigate } from 'react-router-dom';
+import ClienteService from "../../../services/clienteService";
 
 export function Register() {
+  const navigate = useNavigate();
   const [cliente, setClientes] = useState({
     email: "",
     senha: "",
@@ -13,6 +15,18 @@ export function Register() {
   });
 
   const [confirmPassword, setConfirmPassword] = useState("");
+
+  const cleanValues = () => {
+    setClientes({
+      email: "",
+      senha: "",
+      cpf: "",
+      nome: "",
+      genero: "",
+      data_nasc: "",
+    });
+    setConfirmPassword("");
+  }
 
   const handleChange = (event) => {
     setClientes({ ...cliente, [event.target.name]: event.target.value });
@@ -34,23 +48,15 @@ export function Register() {
       return;
     }
 
-    try {
-      const res = await axios.post("http://localhost:3001/clientes/", cliente);
-      console.log(res);
+    ClienteService.register(cliente).then((data) => {
       alert("Cliente cadastrado com sucesso");
-      setClientes({
-        email: "",
-        senha: "",
-        cpf: "",
-        nome: "",
-        genero: "",
-        data_nasc: "",
-      });
-      setConfirmPassword("");
-    } catch (error) {
-      console.error("Erro ao cadastrar cliente", error);
+      cleanValues();
+      navigate("/Login");
+    }).catch((err) => {
+      console.error("Erro ao cadastrar cliente", err);
       alert("Erro ao cadastrar cliente");
-    }
+    })
+      
   };
 
   return (

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "./Login.css";
 import { useNavigate } from 'react-router-dom';
+import LocalStoregeHelper from '../../../helpers/localStorage.helper';
+import ClienteService from '../../../services/clienteService';
 
 // NÃO EXCLUAM ALGO NA TELA SEM REFAZER O TESTID, PARA NÃO DAR ERRO
 
@@ -52,11 +54,16 @@ export function Login() {
         validateEmail(email);
         validatePassword(password);
 
-        if (email == "admin@admin.com" && password == "admin") {
-            navigate("/Produto-add");
-        } else {
+        if (email === "admin@admin.com" && password === "admin") navigate("/Produto-add")
+
+        ClienteService.login(email, password)
+        .then((data) => {
+            LocalStoregeHelper.logIn(data.data);
             navigate("/")
-        }
+            
+        }).catch((err) => {
+            alert("Usuário ou senha incorretos")
+        })
     };
 
     // Trechos como esse: {emailError && <div data-testid="email-error" className="error-message">{emailError}</div>} implementam o teste no DOM (NÃO EXCLUIR)

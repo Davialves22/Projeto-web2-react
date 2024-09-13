@@ -18,6 +18,13 @@ let operations = {
         );
     },
 
+    valid: (email, senha) => {
+        return db.promise().execute(
+            'SELECT email, nome FROM clientes WHERE email = ? AND senha = ?', 
+            [email, senha]
+        );
+    },
+
     save: (email, senha, cpf, nome, genero, data_nasc) => {
         return db.promise().execute(
             'INSERT INTO clientes (email, senha, cpf, nome, genero, data_nasc) VALUES (?, ?, ?, ?, ?, ?)',

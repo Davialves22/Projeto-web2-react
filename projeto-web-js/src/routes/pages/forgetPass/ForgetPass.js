@@ -1,4 +1,3 @@
-import { Link, Navigate } from "react-router-dom";
 import style from "./ForgetPass.module.css";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";

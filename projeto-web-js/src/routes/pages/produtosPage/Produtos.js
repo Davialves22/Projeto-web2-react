@@ -16,6 +16,7 @@ export function Produto() {
         } catch (err) {
             console.log(err);
         }
+            
     }, [nome, categoria]);
 
     const updateStates = (element) => {
@@ -50,10 +51,10 @@ export function Produto() {
                             title={produto.nome}
                             text={`Preço: R$ ${convertToBRL(produto.preco)}\n${produto.descricao}`} // Você pode querer ajustar a formatação aqui
                             imageSrc={produto.imagem_produto}
-                            buyButtonText="Comprar"
-                            buyButtonLink={`Descricao/${produto.id}`} // Corrigido para usar o ID do produto
+                            buyButtonText="Detalhes"
+                            buyButtonLink={`/Descricao/${produto.produto_id}`} // Corrigido para usar o ID do produto
                             cartButtonText="bi bi-cart"
-                            cartButtonLink={`Carrinho/${produto.id}`} // Corrigido para usar o ID do produto
+                            cartButtonLink={`/Carrinho/${produto.produto_id}`} // Corrigido para usar o ID do produto
                         />
                     </div>
                 ))}

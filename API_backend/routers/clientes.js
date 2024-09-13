@@ -15,6 +15,18 @@ router.get("/", (req, res) => {
         });
 });
 
+router.post("/login", (req, res) => {
+    const { email, pass } = req.body;
+    operations.valid(email, pass)
+        .then(([rows]) => {
+            res.json(rows[0]);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).send('Erro ao tentar realizar o login');
+        });
+});
+
 //funcionou
 router.get("/email", (req, res) => {
     operations.listEmails()

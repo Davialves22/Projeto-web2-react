@@ -51,16 +51,16 @@ export const OfertaDiaria = () => {
                             >
                                 <div className="container">
                                     <div className="row justify-content-center">
-                                        {slide.map((card) => (
-                                            <div key={card.id} className="col-12 col-md-4 col-lg-2 mb-4 d-flex justify-content-center">
+                                        {slide.map((produto) => (
+                                            <div key={produto.id} className="col-12 col-md-4 col-lg-2 mb-4 d-flex justify-content-center">
                                                 <Card
-                                                    title={card.nome}
-                                                    text={`${card.descricao}\nPreço: R$ ${convertToBRL(card.preco)}`}
-                                                    imageSrc={card.imagem_produto}
-                                                    buyButtonText="Comprar"
-                                                    buyButtonLink={`Descricao/${card.id}`} // Corrigido para usar o ID do produto
+                                                    title={produto.nome}
+                                                    text={`${produto.descricao}\nPreço: R$ ${convertToBRL(produto.preco)}`}
+                                                    imageSrc={produto.imagem_produto}
+                                                    buyButtonText="Detalhes"
+                                                    buyButtonLink={`/Descricao/${produto.produto_id}`} // Corrigido para usar o ID do produto
                                                     cartButtonText="bi bi-cart" // Nome correto da classe do ícone
-                                                    cartButtonLink={`Carrinho/${card.id}`} // Corrigido para usar o ID do produto
+                                                    cartButtonLink={`/Carrinho/${produto.produto_id}`} // Corrigido para usar o ID do produto
                                                 />
                                             </div>
                                         ))}

@@ -10,7 +10,7 @@ export const Card = ({
     buyButtonText,
     buyButtonLink,
     cartButtonText,
-    cartButtonLink,
+    cartButtonLink
 }) => (
     <div className={`card ${styles.Card}`}>
         <img src={imageSrc} className="card-img-top" alt={title} />

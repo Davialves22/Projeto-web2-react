@@ -1,20 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ProdutoService from '../../../services/produtoService';
-import styles from './Carrinho.module.css';
+import styles from './produtoDescricao.module.css';
 
-export const Carrinho = () => {
+export const ProdutoDescricao = () => {
     const { id } = useParams(); // Obtém o ID do produto da URL
     const [produto, setProduto] = useState(null); // Inicializa como null
     const [loading, setLoading] = useState(true); // Estado de carregamento
 
     useEffect(() => {
         const fetchProduto = async () => {
-            try {
-                console.log('ID do produto:', id); // Log para verificar o ID
+            try { // Log para verificar o ID
                 const response = await ProdutoService.getProdutoById(id);
-                
-                console.log('Resposta da API:', response); // Log para verificar a resposta da API
 
                 if (response.data) {
                     const productData = {
