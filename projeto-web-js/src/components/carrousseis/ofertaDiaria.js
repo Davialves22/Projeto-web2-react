@@ -21,10 +21,10 @@ export const OfertaDiaria = () => {
         fetchData();
     }, []);
 
-    const convertToBRL = (priceUSD) => {
-        const exchangeRate = 5.00;
-        return (priceUSD * exchangeRate).toFixed(2);
-    };
+    // const convertToBRL = (priceUSD) => {
+    //     const exchangeRate = 5.00;
+    //     return (priceUSD * exchangeRate).toFixed(2);
+    // };
 
     // Função para dividir os dados em grupos de tamanho específico
     const chunkArray = (arr, chunkSize) => {
@@ -55,12 +55,12 @@ export const OfertaDiaria = () => {
                                             <div key={produto.id} className="col-12 col-md-4 col-lg-2 mb-4 d-flex justify-content-center">
                                                 <Card
                                                     title={produto.nome}
-                                                    text={`${produto.descricao}\nPreço: R$ ${convertToBRL(produto.preco)}`}
+                                                    text={`${produto.descricao}\nPreço: R$ ${produto.preco.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}`}
                                                     imageSrc={produto.imagem_produto}
                                                     buyButtonText="Detalhes"
-                                                    buyButtonLink={`/Descricao/${produto.produto_id}`} // Corrigido para usar o ID do produto
-                                                    cartButtonText="bi bi-cart" // Nome correto da classe do ícone
-                                                    cartButtonLink={`/Compra/${produto.produto_id}`} // Corrigido para usar o ID do produto
+                                                    buyButtonLink={`/Descricao/${produto.produto_id}`}
+                                                    cartButtonText="bi bi-cart"
+                                                    cartButtonLink={`/Compra/${produto.produto_id}`}
                                                 />
                                             </div>
                                         ))}

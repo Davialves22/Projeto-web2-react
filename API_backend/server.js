@@ -106,6 +106,7 @@ db.execute(
   }
 );
 
+<<<<<<< HEAD
 // Seeds para a tabela produtos
 db.execute(
   `INSERT INTO produtos (produto_id, nome, descricao, preco, imagem_produto, categoria, quantidade) VALUES
@@ -128,6 +129,8 @@ db.execute(
   }
 );
 
+=======
+>>>>>>> 387afc4eb5222d492a94295239efcc81133425d4
 app.listen(PORT, () => {
   console.log(`Servidor rodando em: http://localhost:${PORT}`);
 });
