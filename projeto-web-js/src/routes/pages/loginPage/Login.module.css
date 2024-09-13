@@ -1,0 +1,188 @@
+/* Login.module.css */
+.main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem; /* Reduzido de 2rem para 1rem */
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 60rem; /* Reduzido de 80rem para 60rem */
+    margin: 0 auto;
+    padding: 0.5rem; /* Reduzido de 1rem para 0.5rem */
+}
+
+.title {
+    color: var(--second-color);
+    text-align: left;
+    width: 100%;
+}
+
+.title p {
+    text-align: left;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os itens horizontalmente */
+    justify-content: center;
+    background-color: rgba(237, 137, 54, 0.1);
+    border: 1px solid #ed8936; /* Reduzido de 2px para 1px */
+    border-radius: 8px; /* Reduzido de 10px para 8px */
+    width: 30rem; /* Reduzido de 40rem para 30rem */
+    padding: 1rem; /* Reduzido de 2rem para 1rem */
+    margin: 1rem auto; /* Reduzido de 2rem para 1rem */
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alinha os itens no centro horizontalmente */
+    width: 100%;
+}
+
+.formLogin,
+.formPass {
+    max-width: 100%;
+    width: 20rem; /* Reduzido de 25rem para 20rem */
+    align-items: center; /* Alinha os itens no centro horizontalmente */
+    justify-content: center;
+    margin-bottom: 0.75rem; /* Reduzido de 1rem para 0.75rem */
+}
+
+.inputLogin,
+.inputPass {
+    max-width: 100%;
+    height: 3rem; /* Reduzido de 3.5rem para 3rem */
+    background-color: #ed8936;
+}
+
+.basicAddon {
+    color: var(--second-color);
+    font-size: 1.5rem; /* Reduzido de 1.80rem para 1.5rem */
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.btnConfirm {
+    border: none;
+    color: #fffaf0;
+    background-color: #ed8936;
+    width: 80px; /* Reduzido de 100px para 80px */
+    height: 40px; /* Reduzido de 50px para 40px */
+    font-size: 16px; /* Reduzido de 20px para 16px */
+    border-radius: 8px; /* Reduzido de 10px para 8px */
+    margin: 1rem 0; /* Reduzido de 2rem para 1rem */
+    text-align: center; /* Alinha o texto centralizado */
+    align-self: center; /* Garante que o botão esteja centralizado horizontalmente dentro do formulário */
+}
+
+.cadaster {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem; /* Reduzido de 0.5rem para 0.25rem */
+    color: var(--second-color);
+}
+
+.cadaster p {
+    font-size: 1rem; /* Reduzido de 1.20rem para 1rem */
+    font-weight: 700; /* Reduzido de 900 para 700 */
+    text-decoration: none;
+}
+
+.forget p {
+    text-decoration: none;
+    color: var(--second-color);
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+    .login {
+        width: 30rem; /* Reduzido de 35rem para 30rem */
+    }
+
+    .formLogin,
+    .formPass {
+        width: 18rem; /* Reduzido de 20rem para 18rem */
+    }
+
+    .btnConfirm {
+        width: 100px; /* Mantido em 100px */
+        height: 50px; /* Mantido em 50px */
+        font-size: 18px; /* Reduzido de 28px para 18px */
+    }
+}
+
+@media (max-width: 992px) {
+    .main {
+        flex-direction: column;
+        gap: 0.75rem; /* Reduzido de 1rem para 0.75rem */
+    }
+
+    .login {
+        width: 25rem; /* Reduzido de 30rem para 25rem */
+        padding: 0.75rem; /* Reduzido de 1rem para 0.75rem */
+    }
+
+    .formLogin,
+    .formPass {
+        width: 16rem; /* Reduzido de 18rem para 16rem */
+    }
+
+    .btnConfirm {
+        width: 100px; /* Mantido em 100px */
+        height: 45px; /* Reduzido de 55px para 45px */
+        font-size: 18px; /* Reduzido de 26px para 18px */
+    }
+}
+
+@media (max-width: 768px) {
+    .login {
+        width: 90%; /* Reduzido de 100% para 90% */
+        padding: 0.75rem; /* Reduzido de 1rem para 0.75rem */
+    }
+
+    .formLogin,
+    .formPass {
+        width: 90%; /* Reduzido de 100% para 90% */
+    }
+
+    .btnConfirm {
+        width: 90%; /* Reduzido de 100% para 90% */
+        max-width: 250px; /* Reduzido de 300px para 250px */
+        height: 45px; /* Reduzido de 50px para 45px */
+        font-size: 20px; /* Reduzido de 22px para 20px */
+    }
+}
+
+@media (max-width: 576px) {
+    .login {
+        padding: 0.25rem; /* Reduzido de 0.5rem para 0.25rem */
+    }
+
+    .inputLogin,
+    .inputPass {
+        height: 2.5rem; /* Reduzido de 3rem para 2.5rem */
+    }
+
+    .btnConfirm {
+        height: 40px; /* Reduzido de 45px para 40px */
+        font-size: 16px; /* Reduzido de 18px para 16px */
+    }
+
+    .formLogin,
+    .formPass {
+        width: 100%;
+    }
+}
+
+@media (max-width: 360px) {
+    .btnConfirm {
+        height: 35px; /* Reduzido de 40px para 35px */
+        font-size: 14px; /* Reduzido de 16px para 14px */
+    }
+}

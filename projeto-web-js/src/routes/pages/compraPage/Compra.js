@@ -10,7 +10,7 @@ export const Compra = () => {
     const navigate = useNavigate();
     const { id } = useParams();
     const [produto, setProduto] = useState({ nome:"", descricao:"", imagem_produto:"", preco:0, categoria:"" });
-    const [cliente, setCliente] = useState({ nome: "", email: "", cpf:"", data_nasc:"", genero:""});
+    const [cliente, setCliente] = useState({ nome: "", email: "", cpf:"", data_nasc:"", genero:"" });
 
     useEffect(() => {
         const fetchData = async () => {
@@ -20,9 +20,9 @@ export const Compra = () => {
             const user = LocalStoregeHelper.getUserLogged();
             const responseClient = await ClienteService.getClient(user.email);
             setCliente(responseClient.data[0]);
-        }   
+        }
 
-        fetchData()
+        fetchData();
     }, [id]);
 
     const confirCompra = () => {
@@ -33,23 +33,23 @@ export const Compra = () => {
         }
 
         PedidoService.postProduto(pedido).then((data) => {
-            if(data.status === 201) {
-                alert("compra realizada com sucesso");
-                navigate("/MinhaConta")
+            if (data.status === 201) {
+                alert("Compra realizada com sucesso");
+                navigate("/MinhaConta");
             }
-        })
+        });
     };
 
     return (
-        <div className="container my-5">
+        <div className={`container my-5 ${classes.container}`}>
             <div className="row">
                 {/* Informações do Comprador */}
                 <div className="col-md-6">
-                    <div className="card mb-3">
-                        <div className="card-header">
+                    <div className={`card mb-3 ${classes.card}`}>
+                        <div className={classes.cardHeader}>
                             <h4>Informações do Comprador</h4>
                         </div>
-                        <div className="card-body">
+                        <div className={classes.cardBody}>
                             <dl className="row">
                                 <dt className="col-sm-4"><strong>Nome:</strong></dt>
                                 <dd className="col-sm-8">{cliente.nome}</dd>
@@ -76,14 +76,14 @@ export const Compra = () => {
 
                 {/* Informações do Produto */}
                 <div className="col-md-6">
-                    <div className="card mb-3">
-                        <div className="card-header">
+                    <div className={`card mb-3 ${classes.card}`}>
+                        <div className={classes.cardHeader}>
                             <h4>Detalhes do Produto</h4>
                         </div>
-                        <div className="card-body">
+                        <div className={classes.cardBody}>
                             <div className="row">
                                 <div className="col-md-4">
-                                    <img src={produto.imagem_produto} alt={produto.nome} className="img-fluid" />
+                                    <img src={produto.imagem_produto} alt={produto.nome} className={classes.cardImg} />
                                 </div>
                                 <div className="col-md-8">
                                     <dl className="row">
@@ -104,7 +104,7 @@ export const Compra = () => {
                         </div>
                     </div>
                 </div>
-                <button className="btn" id={classes.navBarButton} onClick={confirCompra}>Finalizar Compra</button>
+                <button className={classes.btn} onClick={confirCompra}>Finalizar Compra</button>
             </div>
         </div>
     );

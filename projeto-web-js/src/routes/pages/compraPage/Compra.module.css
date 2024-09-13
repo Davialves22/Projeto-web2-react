@@ -1,13 +1,143 @@
-#navBarButton {
-    background-color: var(--second-color);
-    font-weight: bold;
-    color: white;
-    width: 20%;
-    margin: 0 auto;
-    border: 1px solid #ddd;
+/* Compra.module.css */
+
+.container {
+    margin: 1rem auto; /* Mantido para telas maiores */
+    max-width: 1200px; /* Limita a largura máxima */
+    padding: 0 1rem; /* Adiciona algum preenchimento nas laterais */
 }
 
-#navBarButton:hover {
-    background-color: white;
-    color: var(--second-color);
+.card {
+    box-sizing: border-box;
+    max-width: 100%;
+    border-radius: 0.5rem; /* Mantido */
+    overflow: hidden;
+    background-color: #fbd38e; /* Cor base para os cards */
+    padding: 1rem; /* Ajustado para melhor espaçamento */
+    box-shadow: 0 0.03125rem 0.0625rem rgba(0, 0, 0, 0.2); /* Reduzido */
+    border: 0.0039rem solid var(--primary-color);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.card-header {
+    background-color: #f6ad55; /* Cor de destaque */
+    color: #fff;
+    padding: 0.5rem; /* Mantido */
+    font-size: 1.125rem; /* Ajustado para melhor legibilidade */
+}
+
+.card-body {
+    padding: 2rem; /* Ajustado para melhor espaçamento */
+}
+
+.card-img {
+    width: 100%;
+    height: auto;
+    max-height: 10rem; /* Reduzido para manter a proporção */
+    object-fit: cover;
+    border: 0.0156rem solid #ED8936; /* Cor de destaque */
+    border-radius: 4rem;
+    margin-bottom: 1rem; /* Ajustado para separar imagem e texto */
+}
+
+.btn {
+    background-color: #ED8936;
+    border: none;
+    color: #fff;
+    max-width: 100%;
+    width: 10rem; /* Ajustado para tamanhos maiores */
+    height: 2.5rem; /* Ajustado para tamanhos maiores */
+    padding: 0.5rem 1rem; /* Ajustado para tamanhos maiores */
+    font-size: 0.875rem; /* Ajustado para tamanhos maiores */
+    border-radius: 0.25rem; /* Mantido */
+    transition: background-color 0.3s, transform 0.3s;
+    text-align: center;
+    display: block; /* Adicionado para garantir que o botão seja um bloco */
+    margin: 1rem auto; /* Centraliza o botão e adiciona espaçamento */
+}
+
+.btn:hover {
+    background-color: #b1672a;
+    transform: scale(1.05);
+}
+
+.row {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap; /* Garante que os itens se ajustem em telas menores */
+}
+
+.col-md-6 {
+    padding: 0.5rem; /* Mantido */
+    flex: 1; /* Garante que as colunas se ajustem corretamente */
+    max-width: 100%; /* Garante que as colunas não excedam a largura da tela */
+}
+
+.dl {
+    margin: 0;
+    padding: 0;
+}
+
+.dt {
+    font-weight: bold;
+}
+
+.dd {
+    margin-bottom: 0.5rem; /* Mantido */
+}
+
+/* Consultas de Mídia */
+@media (max-width: 1200px) {
+    .card-img {
+        max-height: 8rem; /* Ajustado */
+        margin-bottom: 0.75rem; /* Ajustado */
+    }
+
+    .btn {
+        font-size: 0.75rem; /* Ajustado */
+        padding: 0.5rem 1rem; /* Ajustado */
+    }
+}
+
+@media (max-width: 992px) {
+    .card-img {
+        max-height: 6rem; /* Ajustado */
+        margin-bottom: 0.6rem; /* Ajustado */
+    }
+
+    .btn {
+        font-size: 0.7rem; /* Ajustado */
+        padding: 0.4rem 0.8rem; /* Ajustado */
+    }
+}
+
+@media (max-width: 768px) {
+    .card {
+        padding: 0.75rem; /* Ajustado */
+    }
+
+    .card-img {
+        max-height: 5rem; /* Ajustado */
+        margin-bottom: 0.5rem; /* Ajustado */
+    }
+
+    .btn {
+        font-size: 0.65rem; /* Ajustado */
+        padding: 0.35rem 0.7rem; /* Ajustado */
+    }
+}
+
+@media (max-width: 576px) {
+    .card {
+        padding: 0.5rem; /* Ajustado */
+    }
+
+    .card-img {
+        max-height: 4rem; /* Ajustado */
+        margin-bottom: 0.4rem; /* Ajustado */
+    }
+
+    .btn {
+        font-size: 0.6rem; /* Ajustado */
+        padding: 0.3rem 0.6rem; /* Ajustado */
+    }
 }

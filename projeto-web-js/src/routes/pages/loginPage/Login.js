@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import "./Login.css";
+import styles from './Login.module.css'; // Importa o módulo CSS
 import { useNavigate } from 'react-router-dom';
 import LocalStoregeHelper from '../../../helpers/localStorage.helper';
 import ClienteService from '../../../services/clienteService';
-
-// NÃO EXCLUAM ALGO NA TELA SEM REFAZER O TESTID, PARA NÃO DAR ERRO
 
 export function Login() {
     const [email, setEmail] = useState('');
@@ -48,7 +46,6 @@ export function Login() {
         return emailError === '' && passwordError === '' && email !== '' && password !== '';
     };
 
-    // Habilita a usar os testes no DOM
     const handleSubmit = (e) => {
         e.preventDefault();
         validateEmail(email);
@@ -59,31 +56,28 @@ export function Login() {
             navigate("/Produto-add")
         } else {
             ClienteService.login(email, password)
-            .then((data) => {
-                LocalStoregeHelper.logIn(data.data);
-                navigate("/")
-                
-            }).catch((err) => {
-                alert("Usuário ou senha incorretos")
-            })
+                .then((data) => {
+                    LocalStoregeHelper.logIn(data.data);
+                    navigate("/")
+                }).catch((err) => {
+                    alert("Usuário ou senha incorretos")
+                })
         }
     };
 
-    // Trechos como esse: {emailError && <div data-testid="email-error" className="error-message">{emailError}</div>} implementam o teste no DOM (NÃO EXCLUIR)
     return (
-        <main>
-            <section id="login">
-                <div id='title'>
+        <main className={styles.main}>
+            <section className={styles.login}>
+                <div className={styles.title}>
                     <h3>BEM-VINDO!</h3>
                     <p>ENTRE NA SUA CONTA</p>
                 </div>
-                <div id="form">
+                <div className={styles.form}>
                     <form onSubmit={handleSubmit}>
-                        <div id="form-login" className="input-group mb-3">
-                            <span className="bi bi-person-fill" id="basic-addon1"></span>
+                        <div className={`${styles.formLogin} input-group mb-3`}>
+                            <span className={`bi bi-person-fill ${styles.basicAddon}`}></span>
                             <input type="text"
-                                id="input-login"
-                                className="form-control"
+                                className={`${styles.inputLogin} form-control`}
                                 placeholder="Email"
                                 aria-label="Username"
                                 aria-describedby="basic-addon1"
@@ -91,18 +85,15 @@ export function Login() {
                                 value={email}
                                 onChange={handleEmailChange}
                             />
-
                             {emailError && <div data-testid="email-error" className="error-message">{emailError}</div>}
-                            {emailError && <div data-testid="email-required" className="error-message">{emailError}</div>}
                         </div>
 
-                        <div id="form-pass" className="input-group mb-3">
-                            <span className="bi bi-key-fill" id="basic-addon1"></span>
+                        <div className={`${styles.formPass} input-group mb-3`}>
+                            <span className={`bi bi-key-fill ${styles.basicAddon}`}></span>
                             <input type="password"
-                                id="input-pass"
-                                className="form-control"
+                                className={`${styles.inputPass} form-control`}
                                 placeholder="Senha"
-                                aria-label="Username"
+                                aria-label="Password"
                                 aria-describedby="basic-addon1"
                                 data-testid="password"
                                 value={password}
@@ -111,11 +102,11 @@ export function Login() {
                         </div>
 
                         <Link to='/ForgetPass'>
-                            <p id="Forget">
+                            <p className={styles.forget}>
                                 esqueceu a senha?
                             </p>
                         </Link>
-                        <button className="btnConfirm"
+                        <button className={styles.btnConfirm}
                             data-testid="login-button"
                             disabled={!isFormValid()}>
                             LOGIN
@@ -123,7 +114,7 @@ export function Login() {
                     </form>
                 </div>
             </section>
-            <section id="cadaster">
+            <section className={styles.cadaster}>
                 <span> OU </span>
                 <Link to="/Register">
                     <p>CADASTRE-SE</p>

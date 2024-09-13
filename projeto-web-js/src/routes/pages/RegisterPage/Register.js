@@ -26,11 +26,11 @@ export function Register() {
       data_nasc: "",
     });
     setConfirmPassword("");
-  }
+  };
 
   const handleChange = (event) => {
     setClientes({ ...cliente, [event.target.name]: event.target.value });
-  }
+  };
 
   const handlePasswordChange = (event) => {
     setClientes({ ...cliente, senha: event.target.value });
@@ -55,27 +55,25 @@ export function Register() {
     }).catch((err) => {
       console.error("Erro ao cadastrar cliente", err);
       alert("Erro ao cadastrar cliente");
-    })
-      
+    });
   };
 
   return (
-    <div id={style.main}>
-      <h2 id={style.title}>CADASTRE-SE</h2>
-      <form onSubmit={handleOnSubmit} id={style.form}>
-        <div id={style.sideLeft}>
+    <div className={style.main}>
+      <h2 className={style.title}>CADASTRE-SE</h2>
+      <form onSubmit={handleOnSubmit} className={style.form}>
+        <div className={style.sideLeft}>
           {/* Email */}
           <div className="input-group input-group-sm mb-3">
             <span className="bi bi-envelope-fill" id="inputGroup-sizing-sm"></span>
             <input
               type="text"
-              id={style.email}
+              className={`${style.email} form-control`}
               data-testid="email-input"
               onChange={handleChange}
               name="email"
               value={cliente.email}
               placeholder="E-mail"
-              className="form-control"
               aria-label="Email"
               aria-describedby="inputGroup-sizing-sm"
               required
@@ -83,17 +81,16 @@ export function Register() {
           </div>
 
           {/* Senha */}
-          <div id={style.senha}>
+          <div className={style.senha}>
             <div className="input-group input-group-sm mb-3">
               <span className="bi bi-shield-lock-fill" id="inputGroup-sizing-sm"></span>
               <input
                 type="password"
-                id={style.inputPassword}
+                className={`${style.inputPassword} form-control`}
                 data-testid="password-input"
                 onChange={handlePasswordChange}
                 value={cliente.senha}
                 placeholder="Senha"
-                className="form-control"
                 aria-label="Senha"
                 aria-describedby="passwordHelpInline"
                 required
@@ -104,12 +101,11 @@ export function Register() {
               <span className="bi bi-shield-lock-fill" id="inputGroup-sizing-sm"></span>
               <input
                 type="password"
-                id={style.inputPassword2}
+                className={`${style.inputPassword2} form-control`}
                 data-testid="confirm-password-input"
                 onChange={handleConfirmPasswordChange}
                 value={confirmPassword}
                 placeholder="Repita a Senha"
-                className="form-control"
                 aria-label="Confirmar Senha"
                 aria-describedby="passwordHelpInline"
               />
@@ -121,14 +117,13 @@ export function Register() {
             <span className="bi bi-person-vcard-fill" id="inputGroup-sizing-sm"></span>
             <input
               type="text"
-              id={style.cpf}
+              className={`${style.cpf} form-control`}
               data-testid="cpf-input"
               onChange={handleChange}
               name="cpf"
               value={cliente.cpf}
-               maxlength="11"
+              maxLength="11"
               placeholder="CPF"
-              className="form-control"
               aria-label="CPF"
               aria-describedby="inputGroup-sizing-sm"
             />
@@ -139,20 +134,19 @@ export function Register() {
             <span className="bi bi-person-fill" id="inputGroup-sizing-sm"></span>
             <input
               type="text"
-              id={style.formNome}
+              className={`${style.formNome} form-control`}
               data-testid="nome-input"
               onChange={handleChange}
               name="nome"
               value={cliente.nome}
               placeholder="Nome"
-              className="form-control"
               aria-label="Nome Completo"
               aria-describedby="inputGroup-sizing-sm"
             />
           </div>
 
           {/* Gênero */}
-          <div id={style.genero}>
+          <div className={style.genero}>
             <strong><label>Gênero:</label></strong>
             <div className="form-check">
               <input
@@ -206,12 +200,11 @@ export function Register() {
             <span className="bi bi-cake2-fill" id="inputGroup-sizing-sm"></span>
             <input
               type="date"
-              id={style.calendar}
+              className={`${style.calendar} form-control`}
               data-testid="data-nasc-input"
               onChange={handleChange}
               name="data_nasc"
               value={cliente.data_nasc}
-              className="form-control"
               aria-label="Data de Nascimento"
               aria-describedby="inputGroup-sizing-sm"
               required

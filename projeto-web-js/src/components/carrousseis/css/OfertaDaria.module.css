@@ -1,29 +1,30 @@
 .carousel {
     background-color: var(--third-color);
-    border-radius: 10px;
-    padding: 10px;
+    border-radius: 5px; /* Reduzido de 10px para 5px */
+    padding: 5px; /* Reduzido de 10px para 5px */
     margin: 0;
     position: relative;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduzido o tamanho da sombra */
 }
 
 .carousel h1 {
     color: var(--sixth-color);
+    font-size: 2.2rem; /* Ajustado para um tamanho menor */
 }
 
 .carouselWrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 500px;
-    padding: 40px;
+    height: 300px; /* Reduzido de 500px para 300px */
+    padding: 20px; /* Reduzido de 40px para 20px */
 }
 
 .carouselCards {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 10px; /* Reduzido de 20px para 10px */
 }
 
 .carouselCard {
@@ -31,26 +32,26 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 5px; /* Reduzido de 10px para 5px */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduzido o tamanho da sombra */
     background-color: #FBD38D;
-    border-radius: 10px;
+    border-radius: 5px; /* Reduzido de 10px para 5px */
     transition: transform 0.3s ease;
 }
 
 .carouselCard:hover {
-    transform: scale(1.05);
+    transform: scale(1.03); /* Reduzido o tamanho do efeito de hover */
 }
 
 .carouselCards img {
-    border-radius: 8px;
+    border-radius: 4px; /* Reduzido de 8px para 4px */
 }
 
 
 /* CarouselControls.module.css */
 .carouselButton {
-    width: 50px;
-    height: 50px;
+    width: 40px; /* Reduzido de 50px para 40px */
+    height: 40px; /* Reduzido de 50px para 40px */
     background-color: #ED8936;
     border: none;
     border-radius: 50%;
@@ -58,7 +59,7 @@
     align-items: center;
     justify-content: center;
     color: #FEEBC8;
-    font-size: 1.5rem;
+    font-size: 1.2rem; /* Reduzido de 1.5rem para 1.2rem */
     z-index: 10;
     position: absolute;
     top: 50%;
@@ -66,15 +67,15 @@
 }
 
 .carouselControlPrev {
-    left: -50px;
+    left: -40px; /* Reduzido de -50px para -40px */
 }
 
 .carouselControlNext {
-    right: -50px;
+    right: -40px; /* Reduzido de -50px para -40px */
 }
 
 .carouselControlIcon {
-    background-size: 100%, 100%;
+    background-size: 80%, 80%; /* Reduzido o tamanho da imagem */
     background-repeat: no-repeat;
 }
 
@@ -85,6 +86,6 @@
 .vejaMais {
     text-decoration: none;
     text-align: end;
-    font-size: 22px;
+    font-size: 18px; /* Reduzido de 22px para 18px */
     color: #652B19;
 }
