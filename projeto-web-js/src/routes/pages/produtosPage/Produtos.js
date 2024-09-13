@@ -28,10 +28,10 @@ export function Produto() {
         fetchData();
     }, [fetchData]);
 
-    const convertToBRL = (priceUSD) => {
-        const exchangeRate = 5.00; // Taxa de câmbio simulada
-        return (priceUSD * exchangeRate).toFixed(2);
-    };
+    // const convertToBRL = (priceUSD) => {
+    //     const exchangeRate = 5.00; // Taxa de câmbio simulada
+    //     return (priceUSD * exchangeRate).toFixed(2);
+    // };
 
     return (
         <section className="container">
@@ -49,12 +49,12 @@ export function Produto() {
                     <div key={produto.id} className="col-12 col-md-3 mb-5 d-flex justify-content-center">
                         <Card
                             title={produto.nome}
-                            text={`Preço: R$ ${convertToBRL(produto.preco)}\n${produto.descricao}`} // Você pode querer ajustar a formatação aqui
+                            text={`Preço: R$ ${(produto.preco.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'}))}\n${produto.descricao}`}
                             imageSrc={produto.imagem_produto}
                             buyButtonText="Detalhes"
-                            buyButtonLink={`/Descricao/${produto.produto_id}`} // Corrigido para usar o ID do produto
+                            buyButtonLink={`/Descricao/${produto.produto_id}`}
                             cartButtonText="bi bi-cart"
-                            cartButtonLink={`/Compra/${produto.produto_id}`} // Corrigido para usar o ID do produto
+                            cartButtonLink={`/Compra/${produto.produto_id}`}
                         />
                     </div>
                 ))}

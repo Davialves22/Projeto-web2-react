@@ -47,7 +47,7 @@ export function Register() {
       alert("As senhas não coincidem!");
       return;
     }
-
+    
     ClienteService.register(cliente).then((data) => {
       alert("Cliente cadastrado com sucesso");
       cleanValues();
