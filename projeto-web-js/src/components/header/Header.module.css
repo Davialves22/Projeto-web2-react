@@ -1,4 +1,3 @@
-/* Base Styles */
 #userStyle:hover {
     background-color: var(--primary-color);
 }
@@ -6,7 +5,7 @@
 #navBarButton {
     background-color: var(--second-color);
     font-weight: bold;
-    margin-left: 5px; /* Reduzido de 10px para 5px */
+    margin-left: 5px;
     color: white;
 }
 
@@ -18,24 +17,24 @@
 #navbar {
     background-color: var(--primary-color);
     box-sizing: border-box;
-    max-width: 2100px; /* Reduzido de 3150px para 2100px */
+    max-width: 2100px;
     width: 100%;
     margin: 0 auto;
 }
 
 #search {
-    width: 20vw; /* Reduzido de 37vw para 20vw */
-    height: 4vh; /* Reduzido de 6vh para 4vh */
+    width: 20vw;
+    height: 4vh;
 }
 
 #navBarOptions {
     background-color: var(--second-color);
-    padding: 0.5%; /* Reduzido de 1% para 0.5% */
-    border-radius: 5px; /* Reduzido de 10px para 5px */
+    padding: 0.5%;
+    border-radius: 5px;
     color: white;
     display: flex;
     justify-content: space-around;
-    margin: 0 1%; /* Reduzido de 2% para 1% */
+    margin: 0 1%;
 }
 
 #navBarUser {
@@ -62,30 +61,29 @@
     max-width: 100%;
 }
 
-/* Media Queries */
 @media (max-width: 1200px) {
     #search {
-        width: 40vw; /* Reduzido de 50vw para 40vw */
-        height: 5vh; /* Reduzido de 7vh para 5vh */
+        width: 40vw;
+        height: 5vh;
     }
 
     #navBarOptions {
-        width: 15%; /* Reduzido de 20% para 15% */
+        width: 15%;
     }
 }
 
 @media (max-width: 992px) {
     #navbar {
-        width: 85%; /* Reduzido de 90% para 85% */
+        width: 85%;
     }
 
     #search {
-        width: 50vw; /* Reduzido de 60vw para 50vw */
-        height: 6vh; /* Reduzido de 8vh para 6vh */
+        width: 50vw;
+        height: 6vh;
     }
 
     #navBarOptions {
-        width: 20%; /* Reduzido de 25% para 20% */
+        width: 20%;
     }
 
     #options {
@@ -96,18 +94,18 @@
 
 @media (max-width: 768px) {
     #navbar {
-        width: 95%; /* Reduzido de 100% para 95% */
-        margin-top: 0.1rem; /* Reduzido de 0.2rem para 0.1rem */
+        width: 95%;
+        margin-top: 0.1rem;
     }
 
     #search {
-        width: 60vw; /* Reduzido de 70vw para 60vw */
-        height: 7vh; /* Reduzido de 9vh para 7vh */
+        width: 60vw;
+        height: 7vh;
     }
 
     #navBarOptions {
-        width: 30%; /* Reduzido de 35% para 30% */
-        font-size: 0.8rem; /* Reduzido de 0.9rem para 0.8rem */
+        width: 30%;
+        font-size: 0.8rem;
     }
 
     #options {
@@ -123,13 +121,13 @@
 
 @media (max-width: 576px) {
     #search {
-        width: 70vw; /* Reduzido de 80vw para 70vw */
-        height: 8vh; /* Reduzido de 10vh para 8vh */
+        width: 70vw;
+        height: 8vh;
     }
 
     #navBarOptions {
-        width: 40%; /* Reduzido de 50% para 40% */
-        font-size: 0.7rem; /* Reduzido de 0.8rem para 0.7rem */
+        width: 40%;
+        font-size: 0.7rem;
     }
 
     #options {

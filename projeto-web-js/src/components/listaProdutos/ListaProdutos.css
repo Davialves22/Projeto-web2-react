@@ -51,9 +51,6 @@ button:hover {
   background-color: #cc0000;
 }
 
-/* Consultas de mídia para responsividade */
-
-/* Telas de largura máxima de 1200px */
 @media (max-width: 1200px) {
   .listaProdutos {
       width: 90%;
@@ -68,7 +65,7 @@ button:hover {
   }
 }
 
-/* Telas de largura máxima de 992px */
+
 @media (max-width: 992px) {
   .listaProdutos {
       width: 95%;
@@ -83,7 +80,7 @@ button:hover {
   }
 }
 
-/* Telas de largura máxima de 768px */
+
 @media (max-width: 768px) {
   .listaProdutos {
       padding: 10px;
@@ -104,7 +101,6 @@ button:hover {
   }
 }
 
-/* Telas de largura máxima de 576px */
 @media (max-width: 576px) {
   .listaProdutos {
       padding: 5px;

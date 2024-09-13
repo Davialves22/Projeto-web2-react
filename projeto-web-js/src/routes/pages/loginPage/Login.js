@@ -1,69 +1,69 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import styles from './Login.module.css'; // Importa o módulo CSS
+import styles from './Login.module.css';
 import { useNavigate } from 'react-router-dom';
 import LocalStoregeHelper from '../../../helpers/localStorage.helper';
 import ClienteService from '../../../services/clienteService';
 
 export function Login() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [emailError, setEmailError] = useState('');
-    const [passwordError, setPasswordError] = useState('');
+    const [email, setEmail] = useState(''); // Estado para o email
+    const [password, setPassword] = useState(''); // Estado para a senha
+    const [emailError, setEmailError] = useState(''); // erros de email
+    const [passwordError, setPasswordError] = useState(''); // erros de senha
     const navigate = useNavigate();
 
-    const validateEmail = (value) => {
+    const validateEmail = (value) => { 
         if (value.length === 0) {
-            setEmailError('Email é obrigatório');
+            setEmailError('Email é obrigatório'); // Mensagem de erro se o email estiver vazio
         } else if (!/\S+@\S+\.\S+/.test(value)) {
-            setEmailError('Email inválido');
+            setEmailError('Email inválido'); // se o email for inválido
         } else {
-            setEmailError('');
+            setEmailError(''); // Remove a mensagem de erro se o email for válido
         }
     };
 
     const validatePassword = (value) => {
         if (value.trim() === '') {
-            setPasswordError('Senha é obrigatória');
+            setPasswordError('Senha é obrigatória'); // erro se a senha estiver vazia
         } else {
-            setPasswordError('');
+            setPasswordError(''); // Remove a mensagem se a senha for válida
         }
     };
 
-    const handleEmailChange = (e) => {
+    const handleEmailChange = (e) => { // Função para lidar com mudanças no campo de email
         const value = e.target.value;
-        setEmail(value);
-        validateEmail(value);
+        setEmail(value); // Atualizar o estado do email
+        validateEmail(value); // Validar o email
     };
 
-    const handlePasswordChange = (e) => {
+    const handlePasswordChange = (e) => { // Função para lidar com mudanças no campo de senha
         const value = e.target.value;
-        setPassword(value);
-        validatePassword(value);
+        setPassword(value); // Atualiza o estado da senha
+        validatePassword(value); // Valida a senha
     };
 
-    const isFormValid = () => {
-        return emailError === '' && passwordError === '' && email !== '' && password !== '';
+    const isFormValid = () => { // Função para verificar se o formulário é válido
+        return emailError === '' && passwordError === '' && email !== '' && password !== ''; // Verifica se não há erros e se todos os campos estão preenchidos
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        validateEmail(email);
-        validatePassword(password);
+    const handleSubmit = (e) => { // Função para lidar com o envio do formulário
+        e.preventDefault(); // Previne o comportamento padrão de envio do formulário
+        validateEmail(email); // Valida o email
+        validatePassword(password); // Valida a senha
 
-        if (email === "admin@admin.com" && password === "admin") {
-            LocalStoregeHelper.logIn({ email: "admin@admin.com", nome: "Admin" });
-            navigate("/Produto-add")
+        if (email === "admin@admin.com" && password === "admin") { // Verifica credenciais de admin
+            LocalStoregeHelper.logIn({ email: "admin@admin.com", nome: "Admin" }); // Faz login como admin
+            navigate("/Produto-add") // Navega para a página de adicionar produto
         } else {
-            ClienteService.login(email, password)
+            ClienteService.login(email, password) // Tenta fazer login com credenciais fornecidas
                 .then((data) => {
-                    LocalStoregeHelper.logIn(data.data);
-                    navigate("/")
+                    LocalStoregeHelper.logIn(data.data); // Armazena dados do usuário no localStorage
+                    navigate("/") // Navega para a página principal
                 }).catch((err) => {
-                    alert("Usuário ou senha incorretos")
+                    alert("Usuário ou senha incorretos") // Exibe alerta se as credenciais estiverem incorretas
                 })
         }
-    };
+        }
 
     return (
         <main className={styles.main}>
