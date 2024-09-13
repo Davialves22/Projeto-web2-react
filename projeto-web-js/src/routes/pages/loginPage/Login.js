@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import "./Login.css";
 import { useNavigate } from 'react-router-dom';
+import { Header_login } from '../../../components/header/Header-login';
 
 // NÃO EXCLUAM ALGO NA TELA SEM REFAZER O TESTID, PARA NÃO DAR ERRO
 
@@ -61,64 +62,67 @@ export function Login() {
 
     // Trechos como esse: {emailError && <div data-testid="email-error" className="error-message">{emailError}</div>} implementam o teste no DOM (NÃO EXCLUIR)
     return (
-        <main>
-            <section id="login">
-                <div id='title'>
-                    <h3>BEM-VINDO!</h3>
-                    <p>ENTRE NA SUA CONTA</p>
-                </div>
-                <div id="form">
-                    <form onSubmit={handleSubmit}>
-                        <div id="form-login" className="input-group mb-3">
-                            <span className="bi bi-person-fill" id="basic-addon1"></span>
-                            <input type="text"
-                                id="input-login"
-                                className="form-control"
-                                placeholder="Email"
-                                aria-label="Username"
-                                aria-describedby="basic-addon1"
-                                data-testid="email"
-                                value={email}
-                                onChange={handleEmailChange}
-                            />
+        <>
+            <Header_login />
+            <main>
+                <section id="login">
+                    <div id='title'>
+                        <h3>BEM-VINDO!</h3>
+                        <p>ENTRE NA SUA CONTA</p>
+                    </div>
+                    <div id="form">
+                        <form onSubmit={handleSubmit}>
+                            <div id="form-login" className="input-group mb-3">
+                                <span className="bi bi-person-fill" id="basic-addon1"></span>
+                                <input type="text"
+                                    id="input-login"
+                                    className="form-control"
+                                    placeholder="Email"
+                                    aria-label="Username"
+                                    aria-describedby="basic-addon1"
+                                    data-testid="email"
+                                    value={email}
+                                    onChange={handleEmailChange}
+                                />
 
-                            {emailError && <div data-testid="email-error" className="error-message">{emailError}</div>}
-                            {emailError && <div data-testid="email-required" className="error-message">{emailError}</div>}
-                        </div>
+                                {emailError && <div data-testid="email-error" className="error-message">{emailError}</div>}
+                                {emailError && <div data-testid="email-required" className="error-message">{emailError}</div>}
+                            </div>
 
-                        <div id="form-pass" className="input-group mb-3">
-                            <span className="bi bi-key-fill" id="basic-addon1"></span>
-                            <input type="password"
-                                id="input-pass"
-                                className="form-control"
-                                placeholder="Senha"
-                                aria-label="Username"
-                                aria-describedby="basic-addon1"
-                                data-testid="password"
-                                value={password}
-                                onChange={handlePasswordChange} />
-                            {passwordError && <div data-testid="password-error" className="error-message">{passwordError}</div>}
-                        </div>
+                            <div id="form-pass" className="input-group mb-3">
+                                <span className="bi bi-key-fill" id="basic-addon1"></span>
+                                <input type="password"
+                                    id="input-pass"
+                                    className="form-control"
+                                    placeholder="Senha"
+                                    aria-label="Username"
+                                    aria-describedby="basic-addon1"
+                                    data-testid="password"
+                                    value={password}
+                                    onChange={handlePasswordChange} />
+                                {passwordError && <div data-testid="password-error" className="error-message">{passwordError}</div>}
+                            </div>
 
-                        <Link to='/ForgetPass'>
-                            <p id="Forget">
-                                esqueceu a senha?
-                            </p>
-                        </Link>
-                        <button className="btnConfirm"
-                            data-testid="login-button"
-                            disabled={!isFormValid()}>
-                            LOGIN
-                        </button>
-                    </form>
-                </div>
-            </section>
-            <section id="cadaster">
-                <span> OU </span>
-                <Link to="/Register">
-                    <p>CADASTRE-SE</p>
-                </Link>
-            </section>
-        </main>
+                            <Link to='/ForgetPass'>
+                                <p id="Forget">
+                                    esqueceu a senha?
+                                </p>
+                            </Link>
+                            <button className="btnConfirm"
+                                data-testid="login-button"
+                                disabled={!isFormValid()}>
+                                LOGIN
+                            </button>
+                        </form>
+                    </div>
+                </section>
+                <section id="cadaster">
+                    <span> OU </span>
+                    <Link to="/Register">
+                        <p>CADASTRE-SE</p>
+                    </Link>
+                </section>
+            </main>
+        </>
     );
 }

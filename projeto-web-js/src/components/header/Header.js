@@ -1,62 +1,72 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import classes from "./Header.module.css";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import logo from "./../../assets/images/Logo_png.png";
+import { SearchInput } from "./../SearchBar/SearchInput";
+import "./Header.css";
+
+const api = "http://localhost:3001";
 
 export const Header = ({ username }) => {
-  // const location = useLocation();
+  const location = useLocation();
+
+  const [text, setText] = useState("");
+  useEffect(() => {
+    if (text) {
+      fetch(`${api}/produto?filtrer[text]=${text}`).then();
+    }
+  }, [text]);
+
+  // const isLoginPage = location.pathname === "/LoginPage";
 
   return (
     <header>
-      <nav id={classes.navbar} className="navbar navbar-expand-lg navbar-light">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="/">
-            <img src={logo} alt="Logo" width="100" height="90" />
+      <nav class="navbar">
+        <div class="container-fluid">
+          <a class="navbar-brand">
+            <img src={logo} alt="logo" id="logo" />
           </a>
-
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="/produto">Produtos</a>
-              </li>
-            </ul>
-          </div>
-
-          <div id={classes.navBarOptions}>
-            <div id={classes.navBarUser}>
+          <form class="form" role="search">
+            <div>
+            <input
+              class="searchNav"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+              name="pesquisa"
+            />
+            <button class="btnSearch" type="submit">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                width="35"
-                height="35"
+                width="16"
+                height="16"
                 fill="currentColor"
-                class="bi bi-person-circle"
+                class="bi bi-search"
                 viewBox="0 0 16 16"
               >
-                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
-                <path
-                  fill-rule="evenodd"
-                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"
-                />
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
               </svg>
+            </button>
             </div>
-            
-            <div id={classes.options}>
-              <span>{username || "Usuário"}</span>
-
-              <div id={classes.navBarLinks}>
-                {/* TO FIX - mudar o redirecionamento do link */}
-                <Link to="/MinhaConta" class={classes.btnOp}>
-                  Minha Conta
-                </Link>
-                |
-                <Link to="/Login" class={classes.btnOp}>
-                  Sair
-                </Link>
-              </div>
-            </div>
+          </form>
+          <div id="options">
+            <span>{username || "Usuário"}</span>
+            <Link to="/Login" class="exit">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              class="bi bi-box-arrow-right exit"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"
+              />
+              <path
+                fill-rule="evenodd"
+                d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"
+              />
+            </svg>
+            </Link>
           </div>
         </div>
       </nav>
