@@ -14,7 +14,7 @@ import { CadastroProdutos } from './routes/pages/produtosAddPage/CadastroProduto
 import { ForgetPass } from './routes/pages/forgetPass/ForgetPass';
 import { ProdutoDetalhado } from './routes/pages/produtoDetalhadoPage/produtoDetalhadoPage';
 import { Carrinho } from './routes/pages/CartPage/Carrinho';
-
+import MinhaConta from './routes/pages/minhaConta/MinhaConta';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +27,7 @@ const router = createBrowserRouter([
       { path: '/Descricao/:id', element: <ProdutoDetalhado /> },
       { path: '/Carrinho/:id', element: <Carrinho /> },
       { path: '/ForgetPass', element: <ForgetPass /> },
+      { path: '/MinhaConta', element: <MinhaConta /> },
       { path: '*', element: <h1>Page Not Found</h1> },  // 404 Page  // Default Route
     ]
   }
