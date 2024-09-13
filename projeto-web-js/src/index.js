@@ -13,6 +13,7 @@ import { Produto } from './routes/pages/produtosPage/Produtos';
 import { CadastroProdutos } from './routes/pages/produtosAddPage/CadastroProdutos';
 import { ForgetPass } from './routes/pages/forgetPass/ForgetPass';
 import { ProdutoDescricao } from './routes/pages/produtoDescricaoPage/produtoDescricao';
+import { MinhaConta } from './routes/pages/minhaConta/MinhaConta';
 
 
 const router = createBrowserRouter([
@@ -25,6 +26,7 @@ const router = createBrowserRouter([
       { path: '/Register', element: <Register /> },
       { path: '/Descricao/:id', element: <ProdutoDescricao /> }, 
       { path: '/ForgetPass', element: <ForgetPass /> },
+      { path: '/MinhaConta', element: <MinhaConta /> },
       { path: '*', element: <h1>Page Not Found</h1> },  // 404 Page  // Default Route
     ]
   }
