@@ -8,12 +8,12 @@ export const MinhaConta = () => {
     return await axios.get("http://localhost:3001/clientes/1");
   };
 
-  const fetchClientes = async () => {
-    const response = await getClientes();
-    setClientes(response.data);
-  };
-
   useEffect(() => {
+    const fetchClientes = async () => {
+      const response = await getClientes();
+      setClientes(response.data);
+    };
+
     fetchClientes();
   }, []);
 
