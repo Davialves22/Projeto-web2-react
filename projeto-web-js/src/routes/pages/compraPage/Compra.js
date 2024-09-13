@@ -35,7 +35,7 @@ export const Compra = () => {
         PedidoService.postProduto(pedido).then((data) => {
             if (data.status === 201) {
                 alert("Compra realizada com sucesso");
-                navigate("/MinhaConta");
+                navigate("/");
             }
         });
     };
