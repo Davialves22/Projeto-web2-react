@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const operations = require("../database/dao/pedidoDao");
+const operationsProduto = require("../database/dao/produtosDao");
 
 //funcionou
 router.get("/", (req, res) => {
@@ -23,6 +24,24 @@ router.get("/:pedido_id", (req, res) => {
                 res.json(rows[0]);
             } else {
                 res.status(404).send('Pedido não encontrado');
+
+            }
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).send("Erro ao buscar pedudo");
+        });
+});
+
+router.get("/:pedido_id", (req, res) => {
+    const pedido_id = req.params.pedido_id;
+        operations.findByUser(pedido_id)
+        .then(([rows]) => {
+            if (rows.length > 0) {
+                res.json(rows[0]);
+            } else {
+                res.status(404).send('Pedido não encontrado');
+                
             }
         })
         .catch(err => {
@@ -36,6 +55,7 @@ router.post("/", (req, res) => {
     const { produto_id, cliente_id, valor_total } = req.body;
     operations.save(produto_id, cliente_id, valor_total)
         .then((results) => {
+            operationsProduto.sell(produto_id);
             res.status(201).json({ pedido_id: results[0].insertId });
         })
         .catch(err => {

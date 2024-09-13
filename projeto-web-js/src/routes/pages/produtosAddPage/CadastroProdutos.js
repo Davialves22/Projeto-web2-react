@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ListaProdutos from "../../../components/listaProdutos/ListaProdutos";
 import styles from './CadastroProdutos.module.css'; // Importa o CSS Module
+import LocalStoregeHelper from "../../../helpers/localStorage.helper";
+import { useNavigate } from "react-router-dom";
 
 export function CadastroProdutos() {
+  const navigate = useNavigate()
   const [produto, setProduto] = useState({
     nome: '',
     descricao: '',
@@ -12,6 +15,11 @@ export function CadastroProdutos() {
     categoria: '',
     quantidade: ''
   });
+
+  useEffect(() => {
+    const user = LocalStoregeHelper.getUserLogged();
+    if(!!user && user.nome !== "Admin") navigate("/")
+  }, [navigate])
 
   const handleChange = (event) => {
     setProduto({ ...produto, [event.target.name]: event.target.value });

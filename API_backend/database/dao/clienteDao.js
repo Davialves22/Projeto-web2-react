@@ -1,8 +1,14 @@
 const db = require("../config");
 
 let operations = {
-    list: () => {
-        return db.promise().execute('SELECT * FROM clientes');
+    list: (email) => {
+        let query = 'SELECT cliente_id, nome, email, cpf, data_nasc, genero FROM clientes';
+        let params = [];
+        if(email) { 
+            query += " WHERE email = ?";
+            params = [email]
+        }
+        return db.promise().execute(query, params);
     },
 
     listEmails: () => {

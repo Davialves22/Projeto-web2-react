@@ -47,6 +47,11 @@ let operations = {
         );
     },
 
+    sell: (produto_id) => {
+        return db.promise().execute('UPDATE produtos SET quantidade=quantidade-1 WHERE produto_id = ?', [produto_id]
+        );
+    },
+
     remove: (produto_id) => {
         return db.promise().execute('DELETE FROM produtos WHERE produto_id = ?', [produto_id]
         );

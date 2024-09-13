@@ -54,16 +54,19 @@ export function Login() {
         validateEmail(email);
         validatePassword(password);
 
-        if (email === "admin@admin.com" && password === "admin") navigate("/Produto-add")
-
-        ClienteService.login(email, password)
-        .then((data) => {
-            LocalStoregeHelper.logIn(data.data);
-            navigate("/")
-            
-        }).catch((err) => {
-            alert("Usuário ou senha incorretos")
-        })
+        if (email === "admin@admin.com" && password === "admin") {
+            LocalStoregeHelper.logIn({ email: "admin@admin.com", nome: "Admin" });
+            navigate("/Produto-add")
+        } else {
+            ClienteService.login(email, password)
+            .then((data) => {
+                LocalStoregeHelper.logIn(data.data);
+                navigate("/")
+                
+            }).catch((err) => {
+                alert("Usuário ou senha incorretos")
+            })
+        }
     };
 
     // Trechos como esse: {emailError && <div data-testid="email-error" className="error-message">{emailError}</div>} implementam o teste no DOM (NÃO EXCLUIR)

@@ -43,6 +43,11 @@ export const Header = () => {
                     {user.nome}
                   </button>
                   <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                    {
+                      user.nome === "Admin" ? (
+                        <li><Link to="Produto-add" className="dropdown-item" >Gerenciar Produtos</Link></li>
+                      ) : null
+                    }
                     <li><Link to="MinhaConta" className="dropdown-item" >Minha Conta</Link></li>
                     <li><button className="dropdown-item" onClick={logOut}>Sair</button></li>
                   </ul>

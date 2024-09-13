@@ -60,7 +60,7 @@ export const OfertaDiaria = () => {
                                                     buyButtonText="Detalhes"
                                                     buyButtonLink={`/Descricao/${produto.produto_id}`} // Corrigido para usar o ID do produto
                                                     cartButtonText="bi bi-cart" // Nome correto da classe do ícone
-                                                    cartButtonLink={`/Carrinho/${produto.produto_id}`} // Corrigido para usar o ID do produto
+                                                    cartButtonLink={`/Compra/${produto.produto_id}`} // Corrigido para usar o ID do produto
                                                 />
                                             </div>
                                         ))}

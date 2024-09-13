@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-// import MeusPedidos from '../../../components/MeusPedidos/MeusPedidos';
 
 export const MinhaConta = () => {
   const [clientes, setClientes] = useState([]);
@@ -20,21 +19,36 @@ export const MinhaConta = () => {
 
   return (
     <>
-    <div>
-      <h1>Minha Conta</h1>
-      <div>
-        <p><strong>Nome: </strong> {clientes.nome}</p>
-        <p><strong>Email: </strong> {clientes.email}</p>
-        <p><strong>CPF: </strong> {clientes.cpf}</p>
-        <p><strong>Data de nascimento: </strong>{new Date(clientes.data_nasc).toLocaleDateString('pt-BR')}</p>
-        <p><strong>Gênero: </strong>
-          {clientes.genero === 'F' ? 'Feminino' :
-            clientes.genero === 'M' ? 'Masculino' :
-              clientes.genero === 'O' ? 'Outros' : 'Não especificado'}
-        </p>
-      </div>
+    <div class="container mt-5">
+    <div class="card">
+        <div class="card-header">
+            <h1 class="card-title">Minha Conta</h1>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-3"><strong>Nome:</strong></dt>
+                <dd class="col-sm-9">{clientes.nome}</dd>
+
+                <dt class="col-sm-3"><strong>Email:</strong></dt>
+                <dd class="col-sm-9">{clientes.email}</dd>
+
+                <dt class="col-sm-3"><strong>CPF:</strong></dt>
+                <dd class="col-sm-9">{clientes.cpf}</dd>
+
+                <dt class="col-sm-3"><strong>Data de nascimento:</strong></dt>
+                <dd class="col-sm-9">{new Date(clientes.data_nasc).toLocaleDateString('pt-BR')}</dd>
+
+                <dt class="col-sm-3"><strong>Gênero:</strong></dt>
+                <dd class="col-sm-9">
+                    {clientes.genero === 'F' ? 'Feminino' :
+                     clientes.genero === 'M' ? 'Masculino' :
+                     clientes.genero === 'O' ? 'Outros' : 'Não especificado'}
+                </dd>
+            </dl>
+        </div>
     </div>
-    {/* <MeusPedidos /> */}
+</div>
+
     </>
   );
 }

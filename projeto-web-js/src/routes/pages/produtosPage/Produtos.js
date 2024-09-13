@@ -54,7 +54,7 @@ export function Produto() {
                             buyButtonText="Detalhes"
                             buyButtonLink={`/Descricao/${produto.produto_id}`} // Corrigido para usar o ID do produto
                             cartButtonText="bi bi-cart"
-                            cartButtonLink={`/Carrinho/${produto.produto_id}`} // Corrigido para usar o ID do produto
+                            cartButtonLink={`/Compra/${produto.produto_id}`} // Corrigido para usar o ID do produto
                         />
                     </div>
                 ))}

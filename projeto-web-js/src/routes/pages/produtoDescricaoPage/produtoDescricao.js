@@ -55,11 +55,8 @@ export const ProdutoDescricao = () => {
                     <p className={styles.productDescription}>{produto.text}</p>
                     <p className={styles.productPrice}>Preço: R$ {produto.preco}</p>
                     <div className={styles.buttonGroup}>
-                        <a href={`/Compra/${id}`} className={`btn btn-primary ${styles.buyButton}`}>
+                        <a href={`/Compra/${id}`} className={`btn btn-secondary ${styles.cartButton}`}>
                             Comprar
-                        </a>
-                        <a href={`/Carrinho/${id}`} className={`btn btn-secondary ${styles.cartButton}`}>
-                            Adicionar ao Carrinho
                         </a>
                     </div>
                 </div>

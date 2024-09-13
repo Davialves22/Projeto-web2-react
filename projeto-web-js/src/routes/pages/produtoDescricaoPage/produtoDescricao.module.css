@@ -47,6 +47,7 @@
 }
 
 .cartButton {
+    margin: 0 auto;
     background-color: var(--second-color);
     border-color: var(--second-color);
 }

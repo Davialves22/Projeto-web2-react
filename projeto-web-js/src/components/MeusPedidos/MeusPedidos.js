@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
-export default function MeusPedidos() {
+export default function ListaPedidos() {
 
-  const getPedidos = async () => {
-    return await axios.get("http://localhost:3001/pedido/1");
+  const getPedido = async () => {
+    return await axios.get("http://localhost:3001/pedido");
   };
 
-  const PedidosList = () => {
-    const [pedidos, setPedidos] = useState([]);
 
-    const fetchPedidos = async () => {
-      const response = await getPedidos();
-      setPedidos(response.data);
+  const PedidoList = () => {
+    const [pedido, setPedido] = useState([]);
+
+    const fetchPedido = async () => {
+      const response = await getPedido();
+      setPedido(response.data);
     };
 
     useEffect(() => {
@@ -21,29 +22,32 @@ export default function MeusPedidos() {
 
     return (
       <div className="listaPedidos">
-        <h1>Meus Pedidos</h1>
-        <table className="thead-dark">
+        <h1>Lista de Produtos</h1>
+        <table className="table table-dark">
           <thead>
             <tr>
-              <th>Número do Pedido</th>
-              <th>Produto</th>
-              <th>Data do Pedido</th>
-              <th>Valor</th>
+              <th>Nome</th>
+              <th>Descrição</th>
+              <th>Categoria</th>
+              <th>Data da Compra</th>
+              <th>Valor total</th>
             </tr>
           </thead>
           <tbody>
             {pedidos.map((pedido) => (
               <tr key={pedido.pedido_id}>
-                <td>{pedido.pedido_id}</td>
-                <td>{pedido.produto_id}</td>
-                <td>{pedido.data_pedido}</td>
-                <td>{pedido.valor_total}</td>
+                <td>{pedido.nome}</td>
+                <td>{pedido.descricao}</td>
+                <td>{pedido.categoria}</td>
+                <td>{pedido.preco}</td>
+                <td>{pedido.quantidade}</td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
     );
+
   };
-  return <PedidosList />;
-}
+  return <ListaPedidos />;
+} 

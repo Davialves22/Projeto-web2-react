@@ -11,6 +11,11 @@ const ClienteService = {
         return await RequisicaoService.post(`clientes/login`, body);
     },
 
+    async getClient(email = "") {
+        const header = { email }
+        return await RequisicaoService.get(`clientes`, header);
+    }
+
 }
 
 export default ClienteService;

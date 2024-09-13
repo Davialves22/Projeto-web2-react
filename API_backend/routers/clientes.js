@@ -5,7 +5,8 @@ const operations = require("../database/dao/clienteDao");
 
 //funcionou
 router.get("/", (req, res) => {
-    operations.list()
+    const { email } = req.headers;
+    operations.list(email)
         .then(([rows]) => {
             res.json(rows);
         })

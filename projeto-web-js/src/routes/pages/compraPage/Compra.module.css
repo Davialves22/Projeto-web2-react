@@ -1,0 +1,13 @@
+#navBarButton {
+    background-color: var(--second-color);
+    font-weight: bold;
+    color: white;
+    width: 20%;
+    margin: 0 auto;
+    border: 1px solid #ddd;
+}
+
+#navBarButton:hover {
+    background-color: white;
+    color: var(--second-color);
+}
