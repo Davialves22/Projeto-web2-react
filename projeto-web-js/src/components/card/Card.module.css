@@ -2,7 +2,7 @@
     box-sizing: border-box;
     max-width: 100%;
     width: 10rem;
-    height: 19.5rem;
+    height: auto;
     margin: 0 auto;
     border-radius: 8px;
     overflow: hidden;

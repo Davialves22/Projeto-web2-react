@@ -1,6 +1,17 @@
 .carrinho {
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    margin:5rem auto;
+    padding: 2rem;
     background-color: var(--fourth-color);
+    max-width: 100%;
+    width: 50rem;
+    height: 30rem;
+    border-radius: 2rem;
 }
 
 .productImageWrapper {
@@ -13,27 +24,30 @@
 }
 
 .productImage {
-    width: 100%;
+    max-width: 100%;
+    width: 30rem;
     height: auto;
     object-fit: cover;
 }
 
 .productTitle {
     color: var(--second-color);
-    font-size: 2rem;
+    font-size: 3rem;
     margin-bottom: 10px;
 }
 
 .productDescription {
+    text-align: center;
+    justify-content: center;
     color: var(--sixth-color);
-    font-size: 1rem;
+    font-size: 3rem;
     margin-bottom: 10px;
 }
 
 .productPrice {
-    color: var(--primary-color);
-    font-size: 1.2rem;
-    margin-bottom: 20px;
+    color: var(--sixth-color);
+    font-size: 2rem;
+    margin-bottom: 2rem;
 }
 
 .buttonGroup {

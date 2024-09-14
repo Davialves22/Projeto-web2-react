@@ -83,7 +83,7 @@ export const Compra = () => {
                         <div className={classes.cardBody}>
                             <div className="row">
                                 <div className="col-md-4">
-                                    <img src={produto.imagem_produto} alt={produto.nome} className={classes.cardImg} />
+                                    <img src={produto.imagem_produto} alt={produto.nome} className={classes.cardImg} width={140}/>
                                 </div>
                                 <div className="col-md-8">
                                     <dl className="row">
